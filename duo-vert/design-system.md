@@ -3,7 +3,7 @@ name: duo-vert-design-system
 description: The structural rules every Duo Vert page must follow — hero CSS values, service page structure, review inventory, verification checklist. Migrated from the duo-vert Claude Code skill.
 metadata:
   type: project
-  modified: 2026-08-03
+  modified: 2026-08-09
 ---
 
 Structural source of truth is `restauration-pave-uni-gatineau` for service pages, `/gatineau/` for city pages. See [[duo-vert/website-build-overview]] for overall status.
@@ -40,7 +40,7 @@ Hero height = padding-top + heroContentHeight + padding-bottom. Gatineau referen
 
 No "Pourquoi choisir" section (redundant with service pages), no avant/après slider.
 
-Zones per city (exclude current city): each of Gatineau/Hull/Aylmer/Masson-Angers/Ottawa links to the other 4 (`/hull/`, `/aylmer/`, `/masson-angers/`, `/ottawa/`, `/gatineau/` as applicable).
+Zones per city (exclude current city): each of Gatineau/Hull/Aylmer/Masson-Angers/Ottawa links to the other 4 (`/hull/`, `/aylmer/`, `/masson-angers/`, `/ottawa/`, `/gatineau/` as applicable). **Open question (2026-08-09):** this list omits Buckingham, which [[duo-vert/company]] and this file's own Navbar section (below) both list as a live Gatineau-region city page alongside Hull/Aylmer/Masson-Angers. Unverified against the live site — duovert.ca isn't fetchable from this environment (egress blocked). Before editing any city page's Zones section, confirm directly with Emile or the live site whether Buckingham should be added to this cross-link set.
 
 ## Review inventory
 

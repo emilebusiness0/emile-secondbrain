@@ -3,7 +3,7 @@ name: duo-vert-memory-architecture
 description: How this vault works, why curated notes over raw session dumps, and the real sync gap between Claude Code, Cowork, and claude.ai
 metadata:
   type: project
-  modified: 2026-08-02
+  modified: 2026-08-09
 ---
 
 **Setup (2026-07-30):** Emile migrated from an old computer to a new Mac, which surfaced that Claude Code's memory (`~/.claude/projects/.../memory/`) is local to one machine, and separate from Cowork's own skill storage and claude.ai's memory feature — three disconnected stores. Also discovered `duovert-site-fixed` (the actual website source files) never made it to the new Mac; the Netlify-deployed site's source still needs transferring from the old machine.
@@ -26,6 +26,8 @@ metadata:
 - [x] `duovert-site-fixed` transferred from old computer ✅ 2026-08-01 — Emile uploaded to Google Drive; Claude Code pulled it via the Drive API, restored to `~/Documents/duovert-site`, rebuilt `node_modules`, verified local preview (`npm run dev`, port 3000). Full detail in [[duo-vert/website-build-overview]].
 - [ ] Paste the drafted read-bias + proactive-flagging Instructions text into all 8 of Emile's Cowork projects (separate from the `duo-vert-ops` skill file) — only the Duo Vert project has it applied so far via the GitHub-Context connection.
 - [ ] Check whether Cowork has an account-level (not per-project) Memory/Personalization setting that could cover all 8 projects without connecting the GitHub repo to each individually — check under `Emile · Pro` account settings / Customize.
+
+(Both items also tracked in [[project-current-todo-list]] item 7.)
 
 **Going forward:** every future Code/Cowork session working on Duo Vert should read this vault's `README.md` first, then write a short dated update to the relevant file at session end — this is how "what did we do 2 weeks ago" will keep working. Confirmed with Emile this is the expected behavior (2026-07-30).
 
