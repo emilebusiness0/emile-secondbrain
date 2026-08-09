@@ -20,13 +20,12 @@ Two Google Docs with full analysis, prepared in advance — consult when reworki
 
 **Confirmed reusable facts (safe to use in content without re-asking):** scellant brand = Techniseal; pressure washer = 3600 PSI / 2.5 GPM / Honda industrial engine; always protect surrounding lawn/plants + full site cleanup; no subcontracting, always Emile & Beckett personally; season June-September (possible window May-October); polymeric sand ~5 years, pavers themselves 25-50 years (two different numbers, don't conflate); pricing "generally 600$-4000$" for a restoration project, not per-service.
 
-**Still open (prioritized in full report, not yet actioned):**
-- Content depth — homepage (~1250-1463 words) and 4 service pages (~1139-1407 words) still below the 1500-1600 word target.
-- BreadcrumbList schema site-wide missing; `@id` entity consolidation missing (every page re-declares an anonymous LocalBusiness instead of one canonical entity).
-- Hero images unoptimized (~200KB JPEG, no WebP, missing width/height on some pages) — LCP/CLS risk.
+**Resolved since (confirmed via direct measurement 2026-08-08, see [[duo-vert/backlink-campaign]]):** content depth target (all 4 service pages + homepage now 1528-1637 words), BreadcrumbList (26/26 pages), and `@id` entity consolidation are all done — this file's "still open" list was stale, the work was already done in [[duo-vert/website-build-overview]]'s 2026-08-05 audit session and just never crossed off here. Also: the 6 Ottawa quartier "why it degrades" paragraphs were rewritten distinctly 2026-08-08 (separate from the FAQ dedup already done 2026-08-05) — full-page similarity stayed ~75-80% but that's expected/fine, it's shared nav/footer/CTA boilerplate, not a duplicate-content problem.
+
+**Still genuinely open:**
+- Hero images unoptimized (~200KB JPEG, no WebP) — LCP/CLS risk (width/height attributes were added 2026-08-05, but no WebP conversion yet).
 - Missing security headers (X-Frame-Options, CSP) via Netlify `_headers` file.
-- 12 city/quartier pages are 85-97% templated — real content-uniqueness risk if local FAQ/detail sections ever shrink further.
-- The 6 Ottawa quartier pages are confirmed near-duplicate templates (verified by diffing Glebe vs Mechanicsville) — the 5 Gatineau-side city pages are genuinely unique, not a problem. Rewriting the 6 Ottawa pages with real local detail is still open.
+- English-language title/meta variants for pages ranking well on English queries but getting zero clicks (e.g. "interlock driveway gatineau" pos 2.0/68 impressions, "interlock stones gatineau" pos 1.0/22 impressions — both 0 clicks, likely because the French snippet doesn't match an English searcher's expectation) — proposed to Emile 2026-08-08, not yet actioned. See [[duo-vert/backlink-campaign]].
 
 **Content expansion round 2 results:** word counts pushed up (homepage 1463, restauration 1407, scellant 1240, nivelage 1176, nettoyage 1139) — still short of the 1500-1600 target. Added BreadcrumbList JSON-LD to all 4 service pages, "Zones desservies" sections with real internal links, "Pourquoi ne pas attendre" urgency sections with the actual $600-4000 figure. SEO health score progressed 63 → 68 → 71/100 across that session.
 
