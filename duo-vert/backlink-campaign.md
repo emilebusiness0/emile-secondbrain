@@ -38,8 +38,12 @@ first before resuming, it has per-site status and exact next steps. Summary as o
   time, reproduced twice months apart. Émile emailed service@homestars.com 2026-08-07 to
   report it. Don't have him retry the signup form until they reply — it's their bug, not his input.
 - Yelp: done
-- 9 more directories not yet started (Pages Jaunes, BBB, Houzz, Bark.com, Anugo, Reseau411,
-  Québec 411, ID Gatineau phone call, Apple Business Connect)
+- Apple Business Connect: submitted 2026-08-09, both verification methods (domain via Cloudflare
+  TXT record, business registration via NEQ 3381922817 — see reusable-fact note in the live
+  tracker file for the legal-name/NEQ details), up to 5 business days for review, check back
+  ~2026-08-14
+- 8 more directories not yet started (Pages Jaunes, BBB, Houzz, Bark.com, Anugo, Reseau411,
+  Québec 411, ID Gatineau phone call)
 
 Copy-paste business description/NAP text for all 12 sites lives in
 `marketing/directory-listings.md` in the same repo — reuse it rather than redrafting.

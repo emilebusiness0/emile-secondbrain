@@ -36,4 +36,15 @@ This mirrors the same instruction given to Cowork (see [[duo-vert/memory-archite
 
 **Escalated to a hard mechanism (2026-08-01) — memory text alone kept failing, even after two prior escalations above.** After a third failure in the same day (Duo Vert Apps Script lessons not saved until Emile asked directly), Emile pointed out this pattern is "not normal" and demanded a structural fix, not another promise. Added a **Stop hook** in `~/.claude/settings.json` (global, applies to every Claude Code session) that fires automatically whenever a turn ends and displays a visible reminder to check whether anything from that turn is vault-worthy. This is enforced by the harness, not by Claude's own recall — the whole point is that it can't be silently skipped the way a memory instruction can. If this hook is ever missing (e.g. after a settings reset or new machine), re-add it — see the hook JSON in git history of this file or ask to recreate it via the `update-config` skill.
 
+**Failed again 2026-08-09, same session as the escalations above.** After finishing the Google
+Ads campaign build and saving that properly, moved straight into an Apple Business Connect
+signup (verification, NEQ discovery) without saving any of it — had to be told "save in the
+brain man, why do i have to remind u" before writing it down. The Stop hook exists and should
+be firing, but a long, single, multi-topic session (ads build → GSC investigation → backlink
+directory work, all in one continuous conversation) makes it easy to treat "I already did a big
+save earlier this session" as license to coast on later, smaller-feeling updates in the same
+session. **Correction: session-scoped complacency is not an exemption.** Each new
+topic/task-completion within a long session is its own save-worthy event — having saved once
+already this session doesn't reduce the obligation for the next one.
+
 See also: [[duo-vert/memory-architecture]], [[feedback/rename-move-verification-checklist]]
