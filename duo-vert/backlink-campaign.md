@@ -33,7 +33,7 @@ number **819-592-9595**. Business address: 74 Rue Félix-Leclerc, Gatineau, QC J
 ## Backlink signup tracker — full live status in the site repo
 `/Users/emilemorissette/Documents/duovert-site/marketing/backlink-tracker.md` — read this file
 first before resuming, it has per-site status and exact next steps. Summary as of 2026-08-07:
-- Soumission Rénovation: submitted, pending ~2 days — check back 2026-08-09
+- Soumission Rénovation: ✅ done — activation confirmed via email 2026-08-10
 - HomeStars: **blocked by a real signup bug** — their postal code field rejects J9H 6Y2 every
   time, reproduced twice months apart. Émile emailed service@homestars.com 2026-08-07 to
   report it. Don't have him retry the signup form until they reply — it's their bug, not his input.
