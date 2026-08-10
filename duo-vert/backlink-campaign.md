@@ -5,11 +5,11 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 555f7e4f-2052-42fd-bc87-be47a4294732
-  modified: 2026-08-09T17:52:58.025Z
+  modified: 2026-08-10
 ---
 
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
-money pages like [[project_duovert_seo_history]] pages, despite real search demand) purely
+money pages like [[duo-vert/seo-history]] pages, despite real search demand) purely
 because it's brand new — technical audit came back clean (no noindex, correct canonical,
 valid schema, content depth already met). Real competitors (Interlock Masters, Pavage
 Robillard, Paysagiste Charette, Sunrise Paysagiste) all have years of accumulated citations;
@@ -50,7 +50,7 @@ Copy-paste business description/NAP text for all 12 sites lives in
 
 ## Working pattern that worked well this session
 Émile drives the browser himself (site source now lives locally at
-`~/Documents/duovert-site` per [[project_duovert_memory_architecture]] update — no longer
+`~/Documents/duovert-site` per [[duo-vert/memory-architecture]] update — no longer
 missing from this Mac) and reads form fields aloud; I tell him exactly what to paste from the
 prepared kit. Faster than me trying to browser-automate logged-in third-party sites I have no
 credentials for — account creation/login is a hard boundary I don't cross even with permission.

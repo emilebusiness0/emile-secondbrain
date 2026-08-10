@@ -12,6 +12,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[personal/about-emile]] — general facts, preferences, other projects (separate from Duo Vert business/site facts)
 - [[personal/dev-environment]] — what's installed/authenticated on his Mac (Homebrew, gh CLI, Playwright MCP) for Claude Code to use directly
 - [[personal/golf-hobby]] — left-handed, beginner golfer building out a Wilson Ultra set
+- [[personal/website-build-playbook]] — reusable methodology for building client websites (design defaults, SEO checklist, content process), distilled from the Duo Vert build
 - [[project-current-todo-list]] — active cross-project to-do list
 
 ## Duo Vert — business & ops
@@ -20,6 +21,8 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[duo-vert/sheets-tracking]] — the 3-sheet back office plan (leads, expenses, clients/revenue); see also `Excalidraw/lead-webhook-pipeline.excalidraw.md` for a visual diagram of the lead pipeline
 - [[duo-vert/soumission-template]] — confirmed Google Doc quote template, pricing rules, Drive API gotchas
 - [[duo-vert/memory-architecture]] — how this vault works, why curated over raw-dump, the Code/Cowork sync gap
+- [[duo-vert/backlink-campaign]] — directory/citation signup campaign (revenue-crisis context), NAP consistency fix
+- [[duo-vert/google-ads-campaign]] — Google Search Ads campaign built 2026-08-09, every setting chosen and why, still pending Beckett's payment card
 
 ## Duo Vert — website build (duovert.ca, ~6 months of history)
 
@@ -40,6 +43,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[feedback/vault-cross-reference-integrity]] — propagate moved facts/new files to all referencing files + README in the same edit
 - [[feedback/rename-move-verification-checklist]] — on any rename/move, check both "still functions" AND "every identity registry updated" before declaring done
 - [[feedback/fix-root-cause-not-just-instance]] — every fix must also prevent recurrence, not just patch the one instance
+- [[feedback/legal-content-needs-permission]] — never edit legal/policy page wording proactively, even to fix a real error — ask first
 
 ---
 

@@ -3,7 +3,7 @@ name: duo-vert-google-ads-campaign
 description: Google Search Ads campaign built 2026-08-09 — every setting/decision made during setup, draft-save gotcha, and what's still pending (Beckett's payment card)
 metadata:
   type: project
-  modified: 2026-08-09
+  modified: 2026-08-10
 ---
 
 Built 2026-08-09, in response to [[duo-vert/backlink-campaign]]'s revenue-crisis context (one client all summer, SEO too slow to help this season). Chose **Google Search Ads over Meta** — Émile ran Meta before at ~$35/lead, and Search Ads better fits his situation because he already has GSC data proving real search demand for his exact services, and his site converts well once people land (so the bottleneck is top-of-funnel traffic, not conversion).
@@ -45,7 +45,7 @@ Turning off all four automation toggles dropped Google's "optimization score" �
 
 ## Draft-save gotcha (important if resuming)
 
-Reached the payment step and **could not add a card** — it's Beckett's card, he was away, back the next day. Correctly did NOT attempt to enter any payment info. Google Ads normally auto-saves an in-progress campaign as a draft, but Émile's normal Google search for "Google Ads" from a separate personal browser landed on Google's public marketing page (not the actual logged-in console) and showed no sign of the draft — caused real confusion, worth remembering: **always navigate directly to `ads.google.com` while already signed into the correct business account (`duo.vert.gatineau@gmail.com`), never via a search-engine click-through**, which lands on the generic marketing/sales page regardless of account state.
+Reached the payment step and **could not add a card** — it's Beckett's card, he was away, back 2026-08-10. Correctly did NOT attempt to enter any payment info. Google Ads normally auto-saves an in-progress campaign as a draft, but Émile's normal Google search for "Google Ads" from a separate personal browser landed on Google's public marketing page (not the actual logged-in console) and showed no sign of the draft — caused real confusion, worth remembering: **always navigate directly to `ads.google.com` while already signed into the correct business account (`duo.vert.gatineau@gmail.com`), never via a search-engine click-through**, which lands on the generic marketing/sales page regardless of account state.
 
 What actually worked: copying the exact URL of the in-progress campaign-builder page (from the Claude Browser pane session) and pasting it into the other browser — this loaded the draft successfully. **Not yet verified whether this is a true account-level save or just a session-cookie artifact** — should have Émile sign out and back in, then retest the same URL, to confirm before relying on it with Beckett. If the link doesn't survive a sign-out/sign-in cycle, treat this file as the full rebuild spec instead — every decision above should be enough to recreate the campaign from scratch without re-deciding anything.
 
