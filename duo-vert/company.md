@@ -3,7 +3,7 @@ name: duo-vert-company
 description: What Duo Vert is — Emile's paver company, services, area, pricing, and site project
 metadata:
   type: project
-  modified: 2026-08-02
+  modified: 2026-08-11
 ---
 
 Duo Vert is [[personal/about-emile|Emile]]'s own company — a 2-person interlock paver (pavé-uni) business run with a partner, Beckett, based in Gatineau, Quebec.
@@ -18,7 +18,7 @@ Duo Vert is [[personal/about-emile|Emile]]'s own company — a 2-person interloc
 
 **Reputation:** 5-star rated on Google, testimonials from named clients (Jessy via Instagram, Jeff via Google) featured on the site.
 
-**Current project:** an SEO-optimized static HTML website (duovert.ca) to rank for pavé-uni searches in Gatineau/Ottawa. Full build details, page-by-page status, and design-system rules live in [[duo-vert/website-build-overview]] and [[duo-vert/design-system]] — this note is the company/business-level summary, not a substitute for those.
+**Current project:** an SEO-optimized website (duovert.ca), Vite + React with static pre-built HTML per page, to rank for pavé-uni searches in Gatineau/Ottawa. Full build details, page-by-page status, and design-system rules live in [[duo-vert/website-build-overview]] and [[duo-vert/design-system]] — this note is the company/business-level summary, not a substitute for those.
 
 **Contact info (live on site, verify before reusing — may change):** duo.vert.gatineau@gmail.com, 819 328-2129.
 **Business age:** site states ~2 years of experience (as of 2026-07-29).

@@ -3,7 +3,7 @@ name: feedback-proactive-vault-saving
 description: Standing instruction to proactively write significant facts/lessons/preferences to the vault during or at the end of a session, without waiting to be asked
 metadata:
   type: feedback
-  modified: 2026-08-01
+  modified: 2026-08-09
 ---
 
 Emile explicitly asked (2026-07-30) that this not be a Cowork-only behavior — Claude Code should hold itself to the same standard, and since Code has real write access to the vault (unlike Cowork), the bar is higher: don't just notice something is worth saving, actually save it.

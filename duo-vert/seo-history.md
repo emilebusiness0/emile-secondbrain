@@ -3,7 +3,7 @@ name: duo-vert-seo-history
 description: SEO audit findings and fixes, content expansion rounds, mobile audit findings, and the prepared keyword/competitor research docs. Migrated from the duo-vert Claude Code skill.
 metadata:
   type: project
-  modified: 2026-07-30
+  modified: 2026-08-08
 ---
 
 ## SEO resources (for future content rewrites)

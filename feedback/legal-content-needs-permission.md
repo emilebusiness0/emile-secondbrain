@@ -3,6 +3,7 @@ name: feedback-legal-content-needs-permission
 description: Don't edit legal/policy page wording proactively, even to fix real errors — ask first
 metadata:
   type: feedback
+  modified: 2026-08-05
 ---
 
 Never edit the wording of legal pages (terms of service, privacy policy, contracts) proactively, even when a genuine error is found (leftover template boilerplate, factual/jurisdiction contradictions, language errors). Flag the issue clearly and ask before touching the text.
