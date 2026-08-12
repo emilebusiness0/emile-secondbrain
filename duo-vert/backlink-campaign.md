@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 555f7e4f-2052-42fd-bc87-be47a4294732
-  modified: 2026-08-10
+  modified: 2026-08-12
 ---
 
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
@@ -42,8 +42,10 @@ first before resuming, it has per-site status and exact next steps. Summary as o
   TXT record, business registration via NEQ 3381922817 — see reusable-fact note in the live
   tracker file for the legal-name/NEQ details), up to 5 business days for review, check back
   ~2026-08-14
-- 8 more directories not yet started (Pages Jaunes, BBB, Houzz, Bark.com, Anugo, Reseau411,
-  Québec 411, ID Gatineau phone call)
+- 7 more directories not yet started (BBB, Houzz, Bark.com, Anugo, Reseau411, Québec 411, ID
+  Gatineau phone call), plus Pages Jaunes — attempted 2026-08-08 via phone (dead-end sales
+  pitch, no listing created), stuck; retry via solutions.yp.ca/free-online-listing directly
+  instead of the phone line if resumed (see Session 2026-08-08 notes below)
 
 Copy-paste business description/NAP text for all 12 sites lives in
 `marketing/directory-listings.md` in the same repo — reuse it rather than redrafting.
