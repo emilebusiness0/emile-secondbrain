@@ -23,6 +23,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[duo-vert/memory-architecture]] — how this vault works, why curated over raw-dump, the Code/Cowork sync gap
 - [[duo-vert/backlink-campaign]] — directory/citation signup campaign (revenue-crisis context), NAP consistency fix
 - [[duo-vert/google-ads-campaign]] — Google Search Ads campaign built 2026-08-09, every setting chosen and why, still pending Beckett's payment card
+- [[duo-vert/print-collateral]] — door-to-door print kit (flyer/door hanger/business card), design system settled 2026-08-11, flyer still mid-revision
 
 ## Duo Vert — website build (duovert.ca, ~6 months of history)
 
