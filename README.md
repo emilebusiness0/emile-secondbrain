@@ -45,6 +45,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[feedback/rename-move-verification-checklist]] — on any rename/move, check both "still functions" AND "every identity registry updated" before declaring done
 - [[feedback/fix-root-cause-not-just-instance]] — every fix must also prevent recurrence, not just patch the one instance
 - [[feedback/legal-content-needs-permission]] — never edit legal/policy page wording proactively, even to fix a real error — ask first
+- [[feedback/lead-outreach-in-person-visit]] — propose an in-person visit directly in outreach messages, not a call or photos first
 
 ---
 
