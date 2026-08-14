@@ -3,7 +3,7 @@ name: duo-vert-seo-history
 description: SEO audit findings and fixes, content expansion rounds, mobile audit findings, and the prepared keyword/competitor research docs. Migrated from the duo-vert Claude Code skill.
 metadata:
   type: project
-  modified: 2026-08-08
+  modified: 2026-08-14
 ---
 
 ## SEO resources (for future content rewrites)
@@ -18,7 +18,7 @@ Two Google Docs with full analysis, prepared in advance — consult when reworki
 
 **Fixed:** removed `Google-Extended: Disallow` from robots.txt (was blocking Google AI Overviews/Gemini grounding). Added a general price-range disclosure to `/tarifs/` ("600$-4000$ en général"). Fixed duplicate H1 between `/gatineau/` and `/restauration-pave-uni-gatineau/`. Fixed homepage schema `aggregateRating.reviewCount` (1 → 12, matching actual testimonial-card count). Unified opening hours to "Mo-Su 08:00-19:00" (confirmed real hours: 8h-19h every day). `/installation-pave-uni-gatineau/` 404s and doesn't exist in the codebase — likely an orphaned URL from Google Business Profile, flagged for Emile to check GBP directly, not a code fix.
 
-**Confirmed reusable facts (safe to use in content without re-asking):** scellant brand = Techniseal; pressure washer = 3600 PSI / 2.5 GPM / Honda industrial engine; always protect surrounding lawn/plants + full site cleanup; no subcontracting, always Emile & Beckett personally; season June-September (possible window May-October); polymeric sand ~5 years, pavers themselves 25-50 years (two different numbers, don't conflate); pricing "generally 600$-4000$" for a restoration project, not per-service.
+**Confirmed reusable facts (safe to use in content without re-asking):** see [[duo-vert/company]] for the canonical service/pricing/operational facts (scellant brand, pressure-washer specs, season, materials lifespan, pricing, no-subcontracting) — pull directly from there rather than re-deriving from SEO audit notes.
 
 **Resolved since (confirmed via direct measurement 2026-08-08, see [[duo-vert/backlink-campaign]]):** content depth target (all 4 service pages + homepage now 1528-1637 words), BreadcrumbList (26/26 pages), and `@id` entity consolidation are all done — this file's "still open" list was stale, the work was already done in [[duo-vert/website-build-overview]]'s 2026-08-05 audit session and just never crossed off here. Also: the 6 Ottawa quartier "why it degrades" paragraphs were rewritten distinctly 2026-08-08 (separate from the FAQ dedup already done 2026-08-05) — full-page similarity stayed ~75-80% but that's expected/fine, it's shared nav/footer/CTA boilerplate, not a duplicate-content problem.
 
