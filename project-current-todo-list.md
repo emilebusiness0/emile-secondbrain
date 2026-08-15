@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 6d5271dd-3654-44ca-bb5b-edeb2653dc99
-  modified: 2026-08-12
+  modified: 2026-08-15
 ---
 
 Active to-do list, started 2026-07-31. Items fully done with no open sub-task have been dropped — full detail on completed work lives in the linked topic files, not duplicated here.
@@ -18,7 +18,7 @@ Active to-do list, started 2026-07-31. Items fully done with no open sub-task ha
 6. **Google Business Profile posts** — substantially done (see [[duo-vert/website-build-overview]] for the rejection-pattern findings and current scheduled posts). Still open: Aug 23 scellant post slot unresolved (repeated rejections, cause unknown even on manual retry); also confirm the Aug 9/16/30 + Sep 6 posts actually came back approved — a later CTA-button edit knocked all 4 back to "pending" review on 2026-08-02 and that was never re-checked.
 7. **Cowork Instructions rollout** — not started, part of [[duo-vert/memory-architecture]]. Paste the drafted read-bias + proactive-flagging Instructions text into the other 7 of Emile's 8 Cowork projects (only Duo Vert has it so far). Also check whether Cowork has an account-level Memory/Personalization setting that could cover all 8 without connecting the GitHub repo to each individually.
 8. **Backlink/directory campaign** — in progress, see [[duo-vert/backlink-campaign]]. Still open: fix wrong phone number on Facebook/Instagram (Yelp and Soumission Rénovation already fixed/confirmed), follow up on HomeStars' postal-code signup bug, check back on Apple Business Connect submission (~2026-08-14), work through the 7 not-yet-started directories plus retry Pages Jaunes (phone attempt 2026-08-08 was a dead-end sales pitch — try solutions.yp.ca/free-online-listing directly instead), and action the proposed English title/meta variants for pages ranking well on English queries but getting zero clicks.
-9. **Google Search Ads campaign** — built 2026-08-09, not yet launched, see [[duo-vert/google-ads-campaign]]. Blocked on Beckett adding his payment card; he was due back 2026-08-10, which has now passed (today 2026-08-12) with no confirmation he's added the card or the campaign launched — worth checking directly rather than assuming still pending. Also unconfirmed whether the campaign-builder draft URL survives a sign-out/sign-in cycle.
+9. **Google Search Ads campaign** — built 2026-08-09, not yet launched, see [[duo-vert/google-ads-campaign]]. Blocked on Beckett adding his payment card; he was due back 2026-08-10, which has now passed (today 2026-08-15, 5 days overdue) with no confirmation he's added the card or the campaign launched — worth checking directly rather than assuming still pending. Also unconfirmed whether the campaign-builder draft URL survives a sign-out/sign-in cycle.
 10. **Print collateral kit** (flyer/door hanger/business card) — in progress, see [[duo-vert/print-collateral]]. Flyer most-iterated but not signed off; door hanger + business card need a re-sync pass once flyer is final.
 
 **How to apply:** when Emile returns to continue this work, open this file first to recall the full list and pick up where he left off. Update/check off items as they're completed rather than re-deriving the list from scratch.

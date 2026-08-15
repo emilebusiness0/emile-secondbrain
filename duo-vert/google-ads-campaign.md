@@ -3,7 +3,7 @@ name: duo-vert-google-ads-campaign
 description: Google Search Ads campaign built 2026-08-09 — every setting/decision made during setup, draft-save gotcha, and what's still pending (Beckett's payment card)
 metadata:
   type: project
-  modified: 2026-08-12
+  modified: 2026-08-15
 ---
 
 Built 2026-08-09, in response to [[duo-vert/backlink-campaign]]'s revenue-crisis context (one client all summer, SEO too slow to help this season). Chose **Google Search Ads over Meta** — Émile ran Meta before at ~$35/lead, and Search Ads better fits his situation because he already has GSC data proving real search demand for his exact services, and his site converts well once people land (so the bottleneck is top-of-funnel traffic, not conversion).
@@ -41,7 +41,7 @@ Cost-per-lead climbs with budget because the account only has a limited pool of 
 
 Turning off all four automation toggles dropped Google's "optimization score" — deliberately ignored, since that score partly measures compliance with Google's automation preferences, not actual expected performance, and every toggle turned off was a considered, specific decision.
 
-**Ad copy, headlines, sitelinks:** full text (12 short headlines, 5 long headlines, 4 descriptions, 7 sitelinks with descriptions, CTA "Get quote") drafted this session — not reproduced in full here since it's easily regenerated from this file's decisions if the draft is lost, but the descriptions specifically excluded "sans fourmis" (unconfirmed claim) and use the bounded workmanship-only guarantee language (matches [[duo-vert/seo-history]]'s established guarantee wording), plus the real 15% front+back-yard discount (not a fabricated "$150 off").
+**Ad copy, headlines, sitelinks:** full text (12 short headlines, 5 long headlines, 4 descriptions, 7 sitelinks with descriptions, CTA "Get quote") drafted this session — not reproduced in full here since it's easily regenerated from this file's decisions if the draft is lost, but the descriptions specifically excluded "sans fourmis" (unconfirmed claim) and use the bounded workmanship-only guarantee language (matches [[personal/website-build-playbook]]'s established guarantee wording), plus the real 15% front+back-yard discount (not a fabricated "$150 off").
 
 ## Draft-save gotcha (important if resuming)
 
@@ -53,7 +53,7 @@ What actually worked: copying the exact URL of the in-progress campaign-builder 
 
 - Confirm the draft URL survives sign-out/sign-in (untested as of session end).
 - Beckett adds payment card, campaign actually launches. **His return date (2026-08-10) has
-  now passed (as of 2026-08-12) with no recheck done** — don't assume still pending, confirm
+  now passed (as of 2026-08-15, 5 days) with no recheck done** — don't assume still pending, confirm
   directly.
 - Once live: check cost-per-lead after 3-4 days (not a full month) as an early kill-switch check, given Émile's real financial pressure this summer.
 - Revisit budget tier once real performance data exists — could scale to $43.49+ if $18.70 proves the concept and Beckett/Émile want more volume.

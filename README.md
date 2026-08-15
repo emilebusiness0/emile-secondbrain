@@ -22,7 +22,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[duo-vert/soumission-template]] — confirmed Google Doc quote template, pricing rules, Drive API gotchas
 - [[duo-vert/memory-architecture]] — how this vault works, why curated over raw-dump, the Code/Cowork sync gap
 - [[duo-vert/backlink-campaign]] — directory/citation signup campaign (revenue-crisis context), NAP consistency fix
-- [[duo-vert/google-ads-campaign]] — Google Search Ads campaign built 2026-08-09, every setting chosen and why, still pending Beckett's payment card
+- [[duo-vert/google-ads-campaign]] — Google Search Ads campaign built 2026-08-09, every setting chosen and why, blocked on Beckett's payment card (overdue for a recheck)
 - [[duo-vert/print-collateral]] — door-to-door print kit (flyer/door hanger/business card), design system settled 2026-08-11, flyer still mid-revision
 
 ## Duo Vert — website build (duovert.ca, ~6 months of history)
@@ -32,6 +32,11 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[duo-vert/ai-studio-playbook]] — Gemini/AI Studio prompt patterns, city-page prompt sequence, common mistakes (legacy workflow — current workflow is local editing, see website-build-overview)
 - [[duo-vert/photo-workflow]] — image generation workflow, naming, the AI Studio image-corruption saga and its resolution
 - [[duo-vert/seo-history]] — audit findings, content expansion rounds, mobile audit findings, prepared keyword/competitor research docs
+
+## Diagrams
+
+- `Excalidraw/lead-webhook-pipeline.excalidraw.md` — visual diagram of the lead pipeline (Netlify Form → Proxy → Apps Script → Sheet), see [[duo-vert/sheets-tracking]]
+- `Excalidraw/Drawing 2026-08-01 22.36.47.excalidraw.md` — untitled, no description anywhere in the vault; purpose unknown, candidate for deletion if Emile confirms it's not needed
 
 ## Feedback (how Emile wants work approached)
 
@@ -45,6 +50,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[feedback/rename-move-verification-checklist]] — on any rename/move, check both "still functions" AND "every identity registry updated" before declaring done
 - [[feedback/fix-root-cause-not-just-instance]] — every fix must also prevent recurrence, not just patch the one instance
 - [[feedback/legal-content-needs-permission]] — never edit legal/policy page wording proactively, even to fix a real error — ask first
+- [[feedback/lead-outreach-in-person-visit]] — propose an in-person visit directly in outreach messages, not a call or photos first
 
 ---
 

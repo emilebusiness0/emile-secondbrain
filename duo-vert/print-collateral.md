@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1f0b5c08-2c27-432c-90ca-34b7b04ef3a6
-  modified: 2026-08-12T02:28:51.901Z
+  modified: 2026-08-13
 ---
 
 Building a 3-piece print kit for door-to-door sales: flyer, door hanger, business card — glossy cardstock via Vistaprint. Session started 2026-08-11.
@@ -38,7 +38,7 @@ Building a 3-piece print kit for door-to-door sales: flyer, door hanger, busines
 
 ## Content facts locked in for this kit
 
-- Reviews used: Kilyan Dido (5★, "Excellent service... professionnels et ponctuels...") and Akio (5★, "Incredible work by two respectful young entrepreneurs..." — 2 typos fixed from the original screenshot: "entrepeneurs"→"entrepreneurs", "amd"→"and"). Superseded the earlier Jessy/Jeff review pair used on the website — website testimonials in [[project_duovert_website_build_overview]] are unrelated/unchanged, this is print-only.
+- Reviews used: Kilyan Dido (5★, "Excellent service... professionnels et ponctuels...") and Akio (5★, "Incredible work by two respectful young entrepreneurs..." — 2 typos fixed from the original screenshot: "entrepeneurs"→"entrepreneurs", "amd"→"and"). Superseded the earlier Jessy/Jeff review pair used on the website — website testimonials in [[duo-vert/website-build-overview]] are unrelated/unchanged, this is print-only.
 - "17+ avis Google" is the trust stat used throughout (badge in hero, review count reference) — not tied to the specific reviewCount used in the website's schema.org markup, don't assume they need to match.
 - Active promo: **-15% de rabais de fin de saison, sur les projets qui incluent cour avant ET arrière** (not a standalone per-service discount). Currently expressed via a full-width ribbon under the hero (flat dark-green bg, gold bold "-15%", not the earlier rejected medallion-stamp-on-photo or muddy-gold-gradient versions).
 - No phone number available for the business card back — only duovert.ca + duo.vert.gatineau@gmail.com. Ask Emile if he wants a phone number added.
