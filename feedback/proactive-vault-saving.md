@@ -3,7 +3,7 @@ name: feedback-proactive-vault-saving
 description: Standing instruction to proactively write significant facts/lessons/preferences to the vault during or at the end of a session, without waiting to be asked
 metadata:
   type: feedback
-  modified: 2026-08-09
+  modified: 2026-08-15
 ---
 
 Emile explicitly asked (2026-07-30) that this not be a Cowork-only behavior — Claude Code should hold itself to the same standard, and since Code has real write access to the vault (unlike Cowork), the bar is higher: don't just notice something is worth saving, actually save it.
@@ -46,5 +46,13 @@ save earlier this session" as license to coast on later, smaller-feeling updates
 session. **Correction: session-scoped complacency is not an exemption.** Each new
 topic/task-completion within a long session is its own save-worthy event — having saved once
 already this session doesn't reduce the obligation for the next one.
+
+**Upgraded from advisory to enforced (2026-08-15) — the Stop hook above only ever displayed a reminder; nothing stopped it being silently ignored, and nothing verified a save actually happened.** Emile kept catching this (see 2026-08-09 above) even with the hook in place, since it was pure `systemMessage` text with no teeth. Replaced with a two-hook system in `~/.claude/settings.json`:
+- `UserPromptSubmit` → runs `~/.claude/hooks/vault-turn-start.sh`: stamps a turn-start timestamp and clears the prior decision file, per session, in `~/.claude/state/vault-check/`.
+- `Stop` → runs `~/.claude/hooks/vault-stop-check.sh`: **blocks the turn from ending (exit code 2)** unless a decision file exists for that session. Must contain either `NO_SAVE_NEEDED`, or `SAVED: <absolute path(s)>` — and if the latter, the hook verifies via file mtime that the named file(s) were *actually* modified after the turn started, not just claimed. Guarded by the documented `stop_hook_active` field so it only forces this once per turn (no infinite loop risk; Claude Code also hard-caps at 8 consecutive blocks regardless).
+
+**Why this design over alternatives considered:** `SessionEnd` was considered and rejected — Emile's actual failure pattern is abandoning sessions mid-conversation without a clean exit, so a hook that only fires once at session close would often never fire at all. Per-turn `Stop` is deliberately the right lever for that reason, it just needed to move from advisory to enforced.
+
+**How to apply going forward:** when this hook fires (visible as "Stop hook feedback: ..." in the transcript), actually write the decision file — don't just narrate the check in chat and then still skip the file. If something is being saved, still announce it in the reply to Emile per the "always announce" rule above; the file write satisfies the hook, the chat message satisfies Emile's visibility requirement — both are required, neither substitutes for the other. If this hook infrastructure is ever missing (new machine, settings reset), recreate `~/.claude/hooks/vault-turn-start.sh` and `~/.claude/hooks/vault-stop-check.sh` and the corresponding `hooks` block in `~/.claude/settings.json` — logic is documented in this entry and in git history of this file, or ask to rebuild via the `update-config` skill.
 
 See also: [[duo-vert/memory-architecture]], [[feedback/rename-move-verification-checklist]]
