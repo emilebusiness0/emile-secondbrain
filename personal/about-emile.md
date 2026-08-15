@@ -12,7 +12,7 @@ metadata:
 - Runs Duo Vert (see [[duo-vert/company]]) as his main tracked project so far — other work/projects not yet captured here.
 - Uses a Mac, migrated from an older computer around 2026-07-30.
 - Prefers local deliverable files over live browser-driven work when building something for an external tool (see [[feedback/build-locally-not-live-browser]] — a general preference, not Duo-Vert-specific).
-- Also a student at Cégep de l'Outaouais, program 410.AE, Fall 2026 semester — current schedule tracked in `~/Documents/Admin/Cegep/Cegep Automne 2026.md` (not duplicated here, that file is the source of truth; confirmed against Omnivox 2026-08-15 after two earlier stale schedule PDFs turned out to be wrong).
+- Also a student at Cégep de l'Outaouais, program 410.AE, Fall 2026 semester — current schedule tracked as a photo at `~/Documents/Admin/Cegep/Cegep Automne 2026.png` (not duplicated here, that file is the source of truth; confirmed against Omnivox 2026-08-15 after two earlier stale schedule PDFs turned out to be wrong — a first text-transcribed version was replaced with the real exported photo per [[feedback/cannot-save-pasted-images]]).
 
 **How this section works:** populated the same way as the rest of the vault — curated facts added as they come up in conversation, not a bulk import of past chat history (see [[duo-vert/memory-architecture]] for why raw dumps were rejected). Add new files here for distinct topics (e.g. `personal/other-project-name.md`) rather than growing this one file indefinitely.
 
