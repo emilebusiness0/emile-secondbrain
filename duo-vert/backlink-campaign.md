@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 555f7e4f-2052-42fd-bc87-be47a4294732
-  modified: 2026-08-12
+  modified: 2026-08-15
 ---
 
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
@@ -17,8 +17,9 @@ Duo Vert has almost none. Backlinks/citations are the actual lever, not more on-
 
 **Why: Émile has only had one client this summer and is under real financial pressure.**
 SEO/backlinks cannot rescue this specific summer (too slow); paid Google Ads was proposed as
-the fast-lead lever but deferred until Beckett (co-founder) is back — draft campaign saved at
-`marketing/google-ads-draft.md` in the site repo, ready to launch when they decide to spend.
+the fast-lead lever — the campaign was actually built in the Google Ads console 2026-08-09,
+see [[duo-vert/google-ads-campaign]] for every setting and its current status (blocked on
+Beckett adding his payment card).
 
 **How to apply:** if Émile brings up ranking/revenue frustration again, don't re-litigate
 whether backlinks matter — that's settled. Pick up the tracker below. Don't suggest asking
@@ -40,8 +41,9 @@ first before resuming, it has per-site status and exact next steps. Summary as o
 - Yelp: done
 - Apple Business Connect: submitted 2026-08-09, both verification methods (domain via Cloudflare
   TXT record, business registration via NEQ 3381922817 — see reusable-fact note in the live
-  tracker file for the legal-name/NEQ details), up to 5 business days for review, check back
-  ~2026-08-14
+  tracker file for the legal-name/NEQ details), up to 5 business days for review. Expected
+  check-back date (2026-08-14) has now passed with no recheck logged — confirm status directly
+  rather than assuming still pending.
 - 7 more directories not yet started (BBB, Houzz, Bark.com, Anugo, Reseau411, Québec 411, ID
   Gatineau phone call), plus Pages Jaunes — attempted 2026-08-08 via phone (dead-end sales
   pitch, no listing created), stuck; retry via solutions.yp.ca/free-online-listing directly
