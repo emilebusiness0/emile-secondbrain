@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1f0b5c08-2c27-432c-90ca-34b7b04ef3a6
-  modified: 2026-08-13
+  modified: 2026-08-15
 ---
 
 Building a 3-piece print kit for door-to-door sales: flyer, door hanger, business card — glossy cardstock via Vistaprint. Session started 2026-08-11.
@@ -14,10 +14,11 @@ Building a 3-piece print kit for door-to-door sales: flyer, door hanger, busines
 
 **How to apply:** Resume from the flyer (most iterated) before touching door hanger / business card — they were built once as a first draft and haven't been revised since the flyer's design language kept changing. Re-sync door hanger + business card to match the flyer's final look once flyer is signed off.
 
-## Current state (end of session, still in progress — not signed off)
+## Current state (2026-08-15 — flyer and business card signed off)
 
-- **Flyer**: 5×7in, latest published artifact is "v11" (file `duovert-flyer-v11.html` in that session's scratchpad — scratchpad paths are session-local and won't persist, rebuild from this memory if needed). Last change: arrow-connector between avant/après photos instead of a boxy white card (user rejected the card look). Not yet confirmed by Emile — resume by asking for reaction to the arrow-connector version.
-- **Door hanger** (`duovert-doorhanger.html`, 3.5×8.5in) and **business card** (`duovert-businesscard.html`, 3.5×2in) — built once, early in the process, using an earlier/rougher visual system (before the flyer's font, QR-crop, and mime-bug fixes landed). They need a revisit pass once the flyer is final: same fonts, same clean QR asset, same gold-accent discipline.
+- **Flyer**: signed off. Final front/back live at `~/Documents/duovert-print/flyer/final/duovert-flyer-front.png` and `duovert-flyer-back.png`. All intermediate draft versions (v2 through v12, ~16 files) were cleaned up 2026-08-15 as part of a broader Mac file-organization pass — see [[personal/mac-file-organization]]. Going forward, iterate by editing in place, don't leave numbered drafts sitting around — see [[feedback/edit-in-place-no-version-sprawl]].
+- **Business card**: signed off 2026-08-15 — Emile picked the "photo" version (real project photo background, "DUO VERT · PAVÉ-UNI · GATINEAU & OTTAWA") over the illustrated-tree-logo version. Final file: `~/Documents/duovert-print/duovert-businesscard-v3-photo.html`. The illustrated version and its file were discarded (moved to Trash). Also present: `vistaprint-export/duovert-card-front.png` + `duovert-card-back.png` (exported render of the final design for Vistaprint upload).
+- **Door hanger** (`doorhanger/doorhanger-v3-preview.png`, 3.5×8.5in) — status unclear, was "built once early, needs a revisit pass" as of 2026-08-13; not addressed in the 2026-08-15 session. Confirm with Emile whether it still needs syncing to the flyer/card's final visual system before ordering.
 
 ## Design system settled on (apply to all 3 pieces)
 
