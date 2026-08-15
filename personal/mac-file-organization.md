@@ -10,13 +10,15 @@ Emile asked (2026-08-15) for help organizing and clearing out files on his Mac �
 
 **Why:** wants to start clean/organized now rather than let clutter compound, since this is a new machine.
 
-**State as of 2026-08-15 (survey done, cleanup not yet executed):**
-- Apps stranded on Desktop instead of `/Applications`: Claude.app, Deezer.app, Google Chrome.app, Obsidian.app — likely running from the wrong location.
-- 10 loose image files directly in `~` (home-desktop-fold.jpg, home-mobile-part0-7.jpg, etc.) — look like Duo Vert website screenshots/exports, no business being at the home folder root.
-- Downloads folder mixes real Duo Vert business assets (business card PNGs, city/service photos, flyer, QR code, logo, registration PDF, Cégep schedule PDFs) with genuine one-time junk (Obsidian-1.13.4.dmg installer, a stale duovert-site-fixed zip backup).
+**Cleanup executed 2026-08-15.** Turned out the Desktop "apps" weren't just misplaced — they were full duplicate installs (Claude 753M, Deezer 484M, Chrome 706M, Obsidian 514M = ~2.4GB) alongside already-working copies in `/Applications`, so they were trashed rather than moved. Built this structure under `~/Documents/` for anything that isn't a code repo:
+- `Admin/` — DuoVert-Registration.PDF, `Cegep/` subfolder for the two Cégep schedule PDFs
+- `Assets/Business-Card/`, `Assets/Flyer/`, `Assets/Logo-QR/`, `Assets/City-Photos/` — Duo Vert marketing assets that were stranded in Downloads
+- `Assets/Website-Exports/` — the 10 home-*.jpg/png files that were loose directly in `~`, plus "image cover apple.jpg"
 
-**Plan agreed with Emile:** (1) move stranded apps to `/Applications`, (2) relocate real business assets into their proper existing project folders (`duovert-print`, `duovert-site`, or `Documents` generally) rather than deleting them, (3) confirm with Emile before trashing anything (installer .dmg, stale zip) — nothing gets permanently deleted, moved to Trash only, and only after explicit confirmation per item category.
+Trashed as genuine one-time junk (macOS Trash, recoverable): `Obsidian-1.13.4.dmg` installer, a stale `duovert-site-fixed-...zip` backup, plus the 4 duplicate apps above.
 
-**How to apply:** this is a multi-step cleanup, likely spanning more than one session — check this file for what's already been organized before re-surveying from scratch. Update the "state" section above as steps complete.
+Deliberately left untouched: `duovert-site`, `duovert-print`, `duovert-infra` (live git repos, not clutter), and 2 screenshots on Desktop from 2026-08-15 (Emile hasn't said what to do with them yet).
+
+**How to apply going forward:** this `Documents/Admin/` + `Documents/Assets/<category>/` pattern is now the standard — when new one-off files land in Downloads or the home root, sort them into this structure (or extend it with a new category subfolder) rather than reinventing an organization scheme each time. Home folder root and Downloads should stay empty/near-empty as a baseline; if they're accumulating again, that's a signal to redo a pass like this one.
 
 See also: [[personal/about-emile]]
