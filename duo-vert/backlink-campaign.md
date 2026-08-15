@@ -29,7 +29,9 @@ past clients for reviews again — he said he's already asked everyone who would
 Website/GBP phone (correct): **819-328-2129**. Facebook/Instagram/Yelp all showed the wrong
 number **819-592-9595**. Business address: 74 Rue Félix-Leclerc, Gatineau, QC J9H 6Y2.
 - Yelp: ✅ fixed 2026-08-07
-- Facebook, Instagram: still wrong as of session end 2026-08-07 — pick up here next session
+- Facebook, Instagram: ✅ fixed 2026-08-10 — all three platforms now consistent. Note: Google's
+  own cached search index still shows the old number on Facebook/Instagram/Yelp as of
+  2026-08-13 (stale cache, not a real regression — the platforms themselves are correct).
 
 ## Backlink signup tracker — full live status in the site repo
 `/Users/emilemorissette/Documents/duovert-site/marketing/backlink-tracker.md` — read this file
@@ -39,15 +41,34 @@ first before resuming, it has per-site status and exact next steps. Summary as o
   time, reproduced twice months apart. Émile emailed service@homestars.com 2026-08-07 to
   report it. Don't have him retry the signup form until they reply — it's their bug, not his input.
 - Yelp: done
-- Apple Business Connect: submitted 2026-08-09, both verification methods (domain via Cloudflare
-  TXT record, business registration via NEQ 3381922817 — see reusable-fact note in the live
-  tracker file for the legal-name/NEQ details), up to 5 business days for review. Expected
-  check-back date (2026-08-14) has now passed with no recheck logged — confirm status directly
-  rather than assuming still pending.
-- 7 more directories not yet started (BBB, Houzz, Bark.com, Anugo, Reseau411, Québec 411, ID
-  Gatineau phone call), plus Pages Jaunes — attempted 2026-08-08 via phone (dead-end sales
-  pitch, no listing created), stuck; retry via solutions.yp.ca/free-online-listing directly
-  instead of the phone line if resumed (see Session 2026-08-08 notes below)
+- Apple Business Connect: verification email received 2026-08-13 ("been verified now"). Full
+  profile completed same session: brand/logo added (Single brand flow), cover photo, About
+  description (FR), 12 real project photos (all hero images + final-CTA image, resized — see
+  photo-sizing note below), Actions button linking to `/soumission/`, a Showcase promoting the
+  15% front+back-yard discount, category "Paving Contractor." All submitted, back to "In
+  Review" (up to 5 more days). Verify later via the Apple Maps app or Siri search once approved
+  — checked "Insights" tab in Business Connect for real traffic data starts appearing.
+  **Apple photo-sizing requirements (reusable):** logo minimum 1024x1024 (square); cover photo
+  minimum 1600x1040; "From the Business" photos minimum 720x960 (portrait). Site's existing
+  images (logo 630x627, hero photos ~1376x768) were all too small/wrong-ratio — resized with
+  `sips` (scale to cover the target box preserving aspect ratio, then center-crop to exact
+  size) rather than AI upscaling, to avoid any risk of an upscaler subtly altering a brand logo.
+- **BBB is NOT usable — Quebec isn't covered.** Found 2026-08-13: their province dropdown only
+  lists Ontario and other provinces, no Quebec option. BBB doesn't operate a Quebec council/
+  chapter at all (Quebec has its own consumer-protection body, OPC, not BBB). Drop BBB from
+  this list entirely, don't attempt it again.
+- Bing Places for Business: started 2026-08-13 (bing.com/places → bingplaces.com), found it
+  auto-synced most info from the existing Google Business Profile already. Only manual fix
+  needed was the About description, which pulled in English — translated to French matching
+  site terminology (pavé-uni, scellant, sable polymère, aucun sous-traitant, soumission
+  gratuite). Status of full signup completion not confirmed by session end.
+- Nextdoor — flagged as a good channel (community trust/referral, not just an SEO citation)
+  but not yet started as of 2026-08-13.
+- 4 directories still fully not started: Houzz, Bark.com, Anugo, ID Gatineau (phone call).
+  Réseau411 and Québec 411 status unclear, check the live tracker file. Pages Jaunes — attempted
+  2026-08-08 via phone (dead-end sales pitch, no listing created), stuck; retry via
+  solutions.yp.ca/free-online-listing directly instead of the phone line if resumed (see
+  Session 2026-08-08 notes below)
 
 Copy-paste business description/NAP text for all 12 sites lives in
 `marketing/directory-listings.md` in the same repo — reuse it rather than redrafting.

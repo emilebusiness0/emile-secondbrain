@@ -42,3 +42,41 @@ Building a 3-piece print kit for door-to-door sales: flyer, door hanger, busines
 - "17+ avis Google" is the trust stat used throughout (badge in hero, review count reference) — not tied to the specific reviewCount used in the website's schema.org markup, don't assume they need to match.
 - Active promo: **-15% de rabais de fin de saison, sur les projets qui incluent cour avant ET arrière** (not a standalone per-service discount). Currently expressed via a full-width ribbon under the hero (flat dark-green bg, gold bold "-15%", not the earlier rejected medallion-stamp-on-photo or muddy-gold-gradient versions).
 - No phone number available for the business card back — only duovert.ca + duo.vert.gatineau@gmail.com. Ask Emile if he wants a phone number added.
+
+## Distribution route planning (2026-08-13)
+
+750 hangers arriving 2026-08-18, Emile + Beckett dropping together, targeting Gatineau side
+only (Aylmer specifically — Hull/Buckingham/Masson-Angers ruled out as lower-value), wealthy
+neighborhoods with an actual interlock-and-worn-driveway match, not just high price.
+
+**Method that worked well, reusable for scouting more streets:** browse Centris.ca (not
+Remax's own site search, which doesn't support URL-based filtering) sorted by price
+descending for the target area, then open each listing's actual photos (not just the
+thumbnail) and check two things: (1) does a real interlock/pavé-uni surface actually appear
+(driveway, walkway, or patio — doesn't have to be the driveway, ~80% of Duo Vert's real jobs
+are walkway/backyard, not full driveways) and (2) build year, want roughly 15-30 years old
+(old enough for real wear/sand loss, young enough the pavers themselves aren't past
+end-of-life). Price alone is a bad filter — several $1M+ listings turned out to have plain
+asphalt driveways with no interlock at all, and several genuinely had interlock but were built
+2020-2023, too new to need any service yet.
+
+**Confirmed good streets (interlock verified via real photos, right age, normal
+dense-subdivision spacing, not spread-out rural lots):**
+- **Rue Jubilee** — built 1992, circular interlock driveway, waterfront near Aylmer Marina
+- **Rue Jean-Gascon** — built 2008, interlock herringbone driveway; two separate $1M+
+  listings on this exact street, a good density/consistency signal
+- **Chemin McConnell (Parc Champlain)** — built 2007, interlock driveway + pool/patio
+  backyard — best match for the walkway/backyard job type specifically
+
+**Ruled out, worth remembering the pattern:**
+- **Rue Félix-Leclerc** — excluded, this is where Beckett actually lives, already covered
+  many times
+- Rural/large-lot "Chemin" roads (Queen's Park, Castelbeau, de la Montagne, Atholl-Doune) —
+  wealthy but 1+ acre lots spread far apart, real value but bad door-to-door hanging
+  efficiency; kept Queen's Park as a lower-priority backup only
+- Newer builds (Cook, de la Marmotte, de l'Achigan, Francfort — all 2020-2023) — often do have
+  real interlock (sometimes confirmed via listing text like "landscaped yard with interlock")
+  but too young to need restoration; could still work as sealing/cleaning leads specifically,
+  not restoration leads
+- Rue Clarence, Rue des Montagnais — checked the actual photo galleries despite high prices;
+  asphalt driveway + stamped/plain concrete patio, no real interlock anywhere on the property
