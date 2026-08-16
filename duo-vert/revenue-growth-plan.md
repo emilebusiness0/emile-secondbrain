@@ -3,7 +3,7 @@ name: duo-vert-revenue-growth-plan
 description: "The 5-advisor LLM council verdict on getting Duo Vert leads before season end, plus the resulting priority list actually executed"
 metadata:
   type: project
-  modified: 2026-08-13
+  modified: 2026-08-16
 ---
 
 Context: one client all summer 2026 despite peak season, real financial pressure — see
@@ -34,9 +34,11 @@ as the fastest real cash move available, still not actioned as of 2026-08-13.
 5. Start the Google LSA ("Google Guaranteed") application — long lead time, pure desk work,
    worth starting early even though it won't help this exact window
 
-**Still open as of 2026-08-13:** items 2 (Ads launch status unconfirmed), 3 (client
-referral call not confirmed done), 5 (LSA application not started). Item 1 done and verified.
-Item 4 in progress — hangers arrive 2026-08-18, route planned, not yet executed.
+**Status:** item 1 (GA4 fix) done and verified. Item 2 (Ads launch) — see
+[[duo-vert/google-ads-campaign]] for current status, don't repeat it here. Item 3 (client
+referral/review call) and item 5 (LSA application) — not tracked anywhere else, still open, also
+carried on [[project-current-todo-list]]. Item 4 (door-hanger drop) — see
+[[duo-vert/print-collateral]] for current status.
 
 ## Google review replies (ongoing, 2026-08-13 session)
 
@@ -51,4 +53,4 @@ much!" — the "Duo Vert touch" phrase is a good repeatable brand line, reuse it
 **No em dashes** in any of these — see [[feedback/no-em-dashes]].
 
 See also: [[duo-vert/backlink-campaign]], [[duo-vert/google-ads-campaign]],
-[[duo-vert/print-collateral]], [[duo-vert/website-build-overview]]
+[[duo-vert/print-collateral]], [[duo-vert/website-build-overview]], [[project-current-todo-list]]
