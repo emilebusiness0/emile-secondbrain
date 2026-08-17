@@ -6,7 +6,7 @@ metadata:
   modified: 2026-08-09
 ---
 
-**Setup (2026-07-30):** Emile migrated from an old computer to a new Mac, which surfaced that Claude Code's memory (`~/.claude/projects/.../memory/`) is local to one machine, and separate from Cowork's own skill storage and claude.ai's memory feature — three disconnected stores. Also discovered `duovert-site-fixed` (the actual website source files) never made it to the new Mac; the Netlify-deployed site's source still needs transferring from the old machine.
+**Setup (2026-07-30):** Emile migrated from an old computer to a new Mac, which surfaced that Claude Code's memory (`~/.claude/projects/.../memory/`) is local to one machine, and separate from Cowork's own skill storage and claude.ai's memory feature — three disconnected stores. Also discovered `duovert-site-fixed` (the actual website source files) never made it to the new Mac — resolved 2026-08-01, see the checklist below.
 
 **This vault (`~/Documents/emile-secondbrain/`) is the fix for the memory-fragmentation part**, not the missing-site-files part. Structure: a small `README.md` index + one file per topic, cross-linked with `[[wikilinks]]` — same pattern Claude Code's memory already used, just relocated somewhere both Code and (once connected) Cowork can reach, and Obsidian-browsable.
 
