@@ -53,7 +53,7 @@ What actually worked: copying the exact URL of the in-progress campaign-builder 
 
 - Confirm the draft URL survives sign-out/sign-in (untested as of session end).
 - Beckett adds payment card, campaign actually launches. **His return date (2026-08-10) has
-  now passed (as of 2026-08-15, 5 days) with no recheck done** — don't assume still pending, confirm
+  passed with no recheck done as of 2026-08-15** — don't assume still pending, confirm
   directly.
 - Once live: check cost-per-lead after 3-4 days (not a full month) as an early kill-switch check, given Émile's real financial pressure this summer.
 - Revisit budget tier once real performance data exists — could scale to $43.49+ if $18.70 proves the concept and Beckett/Émile want more volume.
