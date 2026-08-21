@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 6d5271dd-3654-44ca-bb5b-edeb2653dc99
-  modified: 2026-08-20
+  modified: 2026-08-21
 ---
 
 Active to-do list, started 2026-07-31. Items fully done with no open sub-task have been dropped — full detail on completed work lives in the linked topic files, not duplicated here.
@@ -19,7 +19,7 @@ Active to-do list, started 2026-07-31. Items fully done with no open sub-task ha
 7. **Cowork Instructions rollout** — not started, part of [[duo-vert/memory-architecture]]. Paste the drafted read-bias + proactive-flagging Instructions text into the other 7 of Emile's 8 Cowork projects (only Duo Vert has it so far). Also check whether Cowork has an account-level Memory/Personalization setting that could cover all 8 without connecting the GitHub repo to each individually.
 8. **Backlink/directory campaign** — in progress, see [[duo-vert/backlink-campaign]]. NAP phone-number fix now done everywhere (Yelp, Soumission Rénovation, Facebook, Instagram all confirmed). Still open: follow up on HomeStars' postal-code signup bug, check back on Apple Business Connect submission (submitted for review ~2026-08-13, expected to clear by ~2026-08-18 — that date has passed with no confirmed approval as of the last check, 2026-08-20; confirm status directly rather than assuming), work through the 7 not-yet-started directories plus retry Pages Jaunes (phone attempt 2026-08-08 was a dead-end sales pitch — try solutions.yp.ca/free-online-listing directly instead), and action the proposed English title/meta variants for pages ranking well on English queries but getting zero clicks.
 9. **Google Search Ads campaign** — built 2026-08-09, not yet launched, see [[duo-vert/google-ads-campaign]]. Blocked on Beckett adding his payment card; his return date (2026-08-10) passed with no recheck done as of the last check (2026-08-15) — don't assume still pending, confirm directly. Also unconfirmed whether the campaign-builder draft URL survives a sign-out/sign-in cycle.
-10. **Print collateral kit** (flyer/door hanger/business card) — in progress, see [[duo-vert/print-collateral]]. Flyer and business card signed off 2026-08-15; door hanger still needs a re-sync pass to match, and Vistaprint's 3.5×8.5in size assumption is unconfirmed.
+10. **Print collateral kit** (flyer/door hanger/business card) — in progress, see [[duo-vert/print-collateral]]. Flyer and business card signed off 2026-08-15; door hanger still needs a re-sync pass to match, and Vistaprint's 3.5×8.5in size assumption is unconfirmed. Also: 750 hangers were expected to arrive 2026-08-18 for an Aylmer drop, no confirmation yet that they arrived or the drop happened — confirm directly.
 11. **Client referral/review call** — not started, part of [[duo-vert/revenue-growth-plan]]'s 5-item priority list (item 3). Call the one client from this summer for a referral/review ask.
 12. **Google LSA ("Google Guaranteed") application** — not started, part of [[duo-vert/revenue-growth-plan]]'s priority list (item 5). Long lead time, pure desk work; worth starting even though it won't help this specific summer window.
 
