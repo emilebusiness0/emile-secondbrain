@@ -3,6 +3,7 @@ name: no-em-dashes
 description: Emile hates em dashes — never use them in any writing for him
 metadata:
   type: feedback
+  modified: 2026-08-15
 ---
 
 Never use em dashes (—) in anything written for Emile — chat replies, drafts, site copy, review responses, anything. Use a period, comma, colon, or parentheses instead depending on the sentence.

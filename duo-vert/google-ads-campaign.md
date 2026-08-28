@@ -3,7 +3,7 @@ name: duo-vert-google-ads-campaign
 description: Google Search Ads campaign built 2026-08-09 — every setting/decision made during setup, draft-save gotcha, and what's still pending (Beckett's payment card)
 metadata:
   type: project
-  modified: 2026-08-15
+  modified: 2026-08-28
 ---
 
 Built 2026-08-09, in response to [[duo-vert/backlink-campaign]]'s revenue-crisis context (one client all summer, SEO too slow to help this season). Chose **Google Search Ads over Meta** — Émile ran Meta before at ~$35/lead, and Search Ads better fits his situation because he already has GSC data proving real search demand for his exact services, and his site converts well once people land (so the bottleneck is top-of-funnel traffic, not conversion).
@@ -53,8 +53,8 @@ What actually worked: copying the exact URL of the in-progress campaign-builder 
 
 - Confirm the draft URL survives sign-out/sign-in (untested as of session end).
 - Beckett adds payment card, campaign actually launches. **His return date (2026-08-10) has
-  passed with no recheck done as of 2026-08-15** — don't assume still pending, confirm
-  directly.
+  passed with no recheck done as of 2026-08-15 (now 13 days stale)** — don't assume still
+  pending, confirm directly.
 - Once live: check cost-per-lead after 3-4 days (not a full month) as an early kill-switch check, given Émile's real financial pressure this summer.
 - Revisit budget tier once real performance data exists — could scale to $43.49+ if $18.70 proves the concept and Beckett/Émile want more volume.
 

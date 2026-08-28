@@ -3,7 +3,7 @@ name: duo-vert-revenue-growth-plan
 description: "The 5-advisor LLM council verdict on getting Duo Vert leads before season end, plus the resulting priority list actually executed"
 metadata:
   type: project
-  modified: 2026-08-16
+  modified: 2026-08-28
 ---
 
 Context: one client all summer 2026 despite peak season, real financial pressure — see
@@ -40,7 +40,7 @@ referral/review call) and item 5 (LSA application) — not tracked anywhere else
 carried on [[project-current-todo-list]]. Item 4 (door-hanger drop) — see
 [[duo-vert/print-collateral]] for current status.
 
-## Google review replies (ongoing, 2026-08-13 session)
+## Google review replies (started 2026-08-13 session, status unconfirmed since)
 
 Working through 9 previously-unreplied 5-star Google reviews (Lucas, Jacob Phillion, Stephen
 Zrudlo, Émile Pelletier, Kilyan Dido, Zach Valdes/"sacxz vds", Juan Andres, Levis, Jeff) plus
@@ -50,7 +50,9 @@ reply in the same language as the review (several are English, several French), 
 specific detail from the review when it fits naturally rather than a generic template. Example
 already live: "That's the Duo Vert touch! We're truly flattered by your comment, thank you so
 much!" — the "Duo Vert touch" phrase is a good repeatable brand line, reuse it when it fits.
-**No em dashes** in any of these — see [[feedback/no-em-dashes]].
+**No em dashes** in any of these — see [[feedback/no-em-dashes]]. **Not re-checked since the
+2026-08-13 session** — confirm directly how many of the 9 actually got replied to before
+assuming this is done; also tracked as item 13 in [[project-current-todo-list]].
 
 See also: [[duo-vert/backlink-campaign]], [[duo-vert/google-ads-campaign]],
 [[duo-vert/print-collateral]], [[duo-vert/website-build-overview]], [[project-current-todo-list]]

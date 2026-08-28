@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 555f7e4f-2052-42fd-bc87-be47a4294732
-  modified: 2026-08-20
+  modified: 2026-08-28
 ---
 
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
@@ -47,8 +47,8 @@ first before resuming, it has per-site status and exact next steps. Summary as o
   photo-sizing note below), Actions button linking to `/soumission/`, a Showcase promoting the
   15% front+back-yard discount, category "Paving Contractor." All submitted, back to "In
   Review" (expected to clear by ~2026-08-18). That date has passed with no confirmed approval
-  as of the last check (2026-08-20) — confirm status directly rather than assuming still
-  pending. Verify via the Apple Maps app or Siri search once approved — check the "Insights"
+  as of the last check (2026-08-20, now 8 days stale) — confirm status directly rather than
+  assuming still pending. Verify via the Apple Maps app or Siri search once approved — check the "Insights"
   tab in Business Connect for real traffic data once it starts appearing.
   **Apple photo-sizing requirements (reusable):** logo minimum 1024x1024 (square); cover photo
   minimum 1600x1040; "From the Business" photos minimum 720x960 (portrait). Site's existing
