@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1f0b5c08-2c27-432c-90ca-34b7b04ef3a6
-  modified: 2026-08-28
+  modified: 2026-08-29
 ---
 
 Building a 3-piece print kit for door-to-door sales: flyer, door hanger, business card — glossy cardstock via Vistaprint. Session started 2026-08-11.
@@ -49,7 +49,7 @@ Building a 3-piece print kit for door-to-door sales: flyer, door hanger, busines
 750 hangers arriving 2026-08-18, Emile + Beckett dropping together, targeting Gatineau side
 only (Aylmer specifically — Hull/Buckingham/Masson-Angers ruled out as lower-value), wealthy
 neighborhoods with an actual interlock-and-worn-driveway match, not just high price. **That
-2026-08-18 arrival date is now 10 days past with zero confirmation the hangers arrived or the
+2026-08-18 arrival date has passed with zero confirmation the hangers arrived or the
 drop happened — this was never checked at all (the last real check, 2026-08-15, predates the
 arrival date) — confirm directly rather than assuming still pending.**
 
