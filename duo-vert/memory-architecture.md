@@ -27,9 +27,11 @@ metadata:
 - [ ] Paste the drafted read-bias + proactive-flagging Instructions text into all 8 of Emile's Cowork projects (separate from the `duo-vert-ops` skill file) — only the Duo Vert project has it applied so far via the GitHub-Context connection.
 - [ ] Check whether Cowork has an account-level (not per-project) Memory/Personalization setting that could cover all 8 projects without connecting the GitHub repo to each individually — check under `Emile · Pro` account settings / Customize.
 
-(Both items also tracked in [[project-current-todo-list]] item 7.)
+(Both items also tracked in [[project-current-todo-list]], Cowork rollout item.)
 
 **Going forward:** every future Code/Cowork session working on Duo Vert should read this vault's `README.md` first, then write a short dated update to the relevant file at session end — this is how "what did we do 2 weeks ago" will keep working. Confirmed with Emile this is the expected behavior (2026-07-30).
+
+**A separate automated "nightly consolidation" process also writes to this repo directly on GitHub (discovered 2026-08-31)** — visible in `git log` as commits like "Nightly consolidation: ..." roughly every 1-3 days since at least 2026-08-15, fixing stale relative-date phrasing, decaying day-counts, and dead cross-references, independent of any live Code/Cowork session. **This creates a real risk: if a local session's git repo goes uncommitted/unpushed for a while (happened 2026-08-15 → 2026-08-31, 16 days), the local working copy and the remote diverge into two separate lineages** — same files edited differently on each side, discovered only when a push gets rejected and a real `git merge` conflict has to be resolved by hand (happened 2026-08-31, see that date's commits). **How to apply:** don't assume a long-uncommitted local vault is safe to just overwrite/force-push — always `git fetch` + merge first, and actually read through merge conflicts rather than blindly picking one side, since the automated job may have caught real drift the local session never saw (e.g. it independently tracked 3 open to-do items — a client referral call, a Google LSA application, review-reply confirmation — that had been silently dropped from the local copy of [[project-current-todo-list]]). If pushes start failing again, this divergence is almost certainly why.
 
 ## Cowork read/write — resolved (2026-07-30 – 2026-08-01)
 
