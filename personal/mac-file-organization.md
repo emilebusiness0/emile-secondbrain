@@ -3,7 +3,7 @@ name: mac-file-organization
 description: Ongoing project to organize/clean up files on Emile's new Mac (got it ~2026-07-30)
 metadata:
   type: project
-  modified: 2026-08-15
+  modified: 2026-08-18
 ---
 
 Emile asked (2026-08-15) for help organizing and clearing out files on his Mac — got the computer about 2 weeks prior (see [[personal/about-emile]]), and a lot of one-time-use files have accumulated with no system in place yet.
@@ -11,7 +11,7 @@ Emile asked (2026-08-15) for help organizing and clearing out files on his Mac �
 **Why:** wants to start clean/organized now rather than let clutter compound, since this is a new machine.
 
 **Cleanup executed 2026-08-15.** Turned out the Desktop "apps" weren't just misplaced — they were full duplicate installs (Claude 753M, Deezer 484M, Chrome 706M, Obsidian 514M = ~2.4GB) alongside already-working copies in `/Applications`, so they were trashed rather than moved. Built this structure under `~/Documents/` for anything that isn't a code repo:
-- `Admin/` — DuoVert-Registration.PDF, `Cegep/` subfolder for the two Cégep schedule PDFs
+- `Admin/` — DuoVert-Registration.PDF, `Cegep/` subfolder (originally two schedule PDFs, since superseded by a schedule photo — see [[personal/about-emile]] for the current source of truth)
 - `Assets/Business-Card/`, `Assets/Flyer/`, `Assets/Logo-QR/`, `Assets/City-Photos/` — Duo Vert marketing assets that were stranded in Downloads
 - `Assets/Website-Exports/` — the 10 home-*.jpg/png files that were loose directly in `~`, plus "image cover apple.jpg"
 

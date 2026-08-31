@@ -3,7 +3,7 @@ name: duo-vert-revenue-growth-plan
 description: "The 5-advisor LLM council verdict on getting Duo Vert leads before season end, plus the resulting priority list actually executed"
 metadata:
   type: project
-  modified: 2026-08-13
+  modified: 2026-08-28
 ---
 
 **Update 2026-08-19:** quoted a client (Rukia, 91 rue de Bourdon, Gatineau — interlock restoration, ~4,352 sq ft) $8,500 labour, plus an estimated $1,500 in materials billed separately at cost — more than double the typical $600–4,000 project ceiling, and still under the ~$10.7–15K market rate estimate for that scope. Would be the biggest job on record if it closes. Draft reply sent with area + materials estimate; still pending her response as of this date.
@@ -36,11 +36,13 @@ as the fastest real cash move available, still not actioned as of 2026-08-13.
 5. Start the Google LSA ("Google Guaranteed") application — long lead time, pure desk work,
    worth starting early even though it won't help this exact window
 
-**Still open as of 2026-08-13:** items 2 (Ads launch status unconfirmed), 3 (client
-referral call not confirmed done), 5 (LSA application not started). Item 1 done and verified.
-Item 4 in progress — hangers arrive 2026-08-18, route planned, not yet executed.
+**Status:** item 1 (GA4 fix) done and verified. Item 2 (Ads launch) — see
+[[duo-vert/google-ads-campaign]] for current status, don't repeat it here. Item 3 (client
+referral/review call) and item 5 (LSA application) — not tracked anywhere else, still open, also
+carried on [[project-current-todo-list]]. Item 4 (door-hanger drop) — see
+[[duo-vert/print-collateral]] for current status.
 
-## Google review replies (ongoing, 2026-08-13 session)
+## Google review replies (started 2026-08-13 session, status unconfirmed since)
 
 Working through 9 previously-unreplied 5-star Google reviews (Lucas, Jacob Phillion, Stephen
 Zrudlo, Émile Pelletier, Kilyan Dido, Zach Valdes/"sacxz vds", Juan Andres, Levis, Jeff) plus
@@ -50,7 +52,9 @@ reply in the same language as the review (several are English, several French), 
 specific detail from the review when it fits naturally rather than a generic template. Example
 already live: "That's the Duo Vert touch! We're truly flattered by your comment, thank you so
 much!" — the "Duo Vert touch" phrase is a good repeatable brand line, reuse it when it fits.
-**No em dashes** in any of these — see [[feedback/no-em-dashes]].
+**No em dashes** in any of these — see [[feedback/no-em-dashes]]. **Not re-checked since the
+2026-08-13 session** — confirm directly how many of the 9 actually got replied to before
+assuming this is done; also tracked as item 13 in [[project-current-todo-list]].
 
 ## Meta ads chosen over Google Ads for rest of season (decided 2026-08-18)
 
@@ -83,6 +87,7 @@ is the baseline number 2027's hiring/growth plan is being measured against — s
 
 See also: [[duo-vert/backlink-campaign]], [[duo-vert/google-ads-campaign]],
 [[duo-vert/print-collateral]], [[duo-vert/website-build-overview]],
-[[duo-vert/employee-hiring-plan]] (2026-08-25: next-summer sales/labor hiring plan this
-note's "starting to think ahead" line turned into), [[duo-vert/season-2027-plan]]
-(2026-08-26: UGC ad talent casting strategy planned as a new Meta ad creative direction)
+[[project-current-todo-list]], [[duo-vert/employee-hiring-plan]] (2026-08-25: next-summer
+sales/labor hiring plan this note's "starting to think ahead" line turned into),
+[[duo-vert/season-2027-plan]] (2026-08-26: UGC ad talent casting strategy planned as a new
+Meta ad creative direction)

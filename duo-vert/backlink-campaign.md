@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 555f7e4f-2052-42fd-bc87-be47a4294732
-  modified: 2026-08-15
+  modified: 2026-08-29
 ---
 
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
@@ -129,8 +129,10 @@ registration trust signal. Summary as of 2026-08-07:
   description (FR), 12 real project photos (all hero images + final-CTA image, resized — see
   photo-sizing note below), Actions button linking to `/soumission/`, a Showcase promoting the
   15% front+back-yard discount, category "Paving Contractor." All submitted, back to "In
-  Review" (up to 5 more days). Verify later via the Apple Maps app or Siri search once approved
-  — checked "Insights" tab in Business Connect for real traffic data starts appearing.
+  Review" (expected to clear by ~2026-08-18). That date has passed with no confirmed approval
+  as of the last check (2026-08-20) — confirm status directly rather than
+  assuming still pending. Verify via the Apple Maps app or Siri search once approved — check the "Insights"
+  tab in Business Connect for real traffic data once it starts appearing.
   **Apple photo-sizing requirements (reusable):** logo minimum 1024x1024 (square); cover photo
   minimum 1600x1040; "From the Business" photos minimum 720x960 (portrait). Site's existing
   images (logo 630x627, hero photos ~1376x768) were all too small/wrong-ratio — resized with
