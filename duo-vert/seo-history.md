@@ -3,7 +3,7 @@ name: duo-vert-seo-history
 description: SEO audit findings and fixes, content expansion rounds, mobile audit findings, and the prepared keyword/competitor research docs. Migrated from the duo-vert Claude Code skill.
 metadata:
   type: project
-  modified: 2026-08-14
+  modified: 2026-08-31
 ---
 
 ## SEO resources (for future content rewrites)
@@ -20,7 +20,7 @@ Two Google Docs with full analysis, prepared in advance — consult when reworki
 
 **Confirmed reusable facts (safe to use in content without re-asking):** see [[duo-vert/company]] for the canonical service/pricing/operational facts (scellant brand, pressure-washer specs, season, materials lifespan, pricing, no-subcontracting) — pull directly from there rather than re-deriving from SEO audit notes.
 
-**Resolved since (confirmed via direct measurement 2026-08-08, see [[duo-vert/backlink-campaign]]):** content depth target (all 4 service pages + homepage now 1528-1637 words), BreadcrumbList (26/26 pages), and `@id` entity consolidation are all done — this file's "still open" list was stale, the work was already done in [[duo-vert/website-build-overview]]'s 2026-08-05 audit session and just never crossed off here. Also: the 6 Ottawa quartier "why it degrades" paragraphs were rewritten distinctly 2026-08-08 (separate from the FAQ dedup already done 2026-08-05) — full-page similarity stayed ~75-80% but that's expected/fine, it's shared nav/footer/CTA boilerplate, not a duplicate-content problem.
+**Resolved since:** content depth target (all 4 service pages + homepage now 1528-1637 words) and `@id` entity consolidation confirmed done via direct measurement 2026-08-08 (see [[duo-vert/backlink-campaign]] for that session). **Correction:** an earlier version of this note also claimed BreadcrumbList was confirmed live on 26/26 pages as of 2026-08-08 — that conflated "written" with "deployed." The breadcrumb JSON-LD was drafted in the 2026-08-05 audit session but actually sat uncommitted and undeployed on the live site until 2026-08-13, when it was discovered and pushed live alongside the GA4 fix — see [[duo-vert/website-build-overview]] for that discovery. Treat sitewide breadcrumb coverage as confirmed live 2026-08-13, not 2026-08-08. Also: the 6 Ottawa quartier "why it degrades" paragraphs were rewritten distinctly 2026-08-08 (separate from the FAQ dedup already done 2026-08-05) — full-page similarity stayed ~75-80% but that's expected/fine, it's shared nav/footer/CTA boilerplate, not a duplicate-content problem.
 
 **Still genuinely open:**
 - Hero images unoptimized (~200KB JPEG, no WebP) — LCP/CLS risk (width/height attributes were added 2026-08-05, but no WebP conversion yet).
