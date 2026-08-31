@@ -23,7 +23,7 @@ metadata:
 **Full website-build history migrated in 2026-07-30:** the old `duo-vert` Claude Code skill (design system, AI Studio prompt playbook, photo workflow, SEO audit history) was split into 5 topic files, now the source of truth — [[duo-vert/website-build-overview]], [[duo-vert/design-system]], [[duo-vert/ai-studio-playbook]], [[duo-vert/photo-workflow]], [[duo-vert/seo-history]].
 
 **Still outstanding (Tasks-plugin format, added 2026-08-01 — installed the Obsidian Tasks plugin, converting this list to real trackable checkboxes instead of prose):**
-- [x] `duovert-site-fixed` transferred from old computer ✅ 2026-08-01 — Emile uploaded to Google Drive; Claude Code pulled it via the Drive API, restored to `~/Documents/duovert-site`, rebuilt `node_modules`, verified local preview (`npm run dev`, port 3000). Full detail in [[duo-vert/website-build-overview]].
+- [x] `duovert-site-fixed` transferred from old computer ✅ 2026-08-01 — Emile uploaded to Google Drive; Claude Code pulled it via the Drive API, restored to `~/Documents/Duo Vert/duovert-site`, rebuilt `node_modules`, verified local preview (`npm run dev`, port 3000). Full detail in [[duo-vert/website-build-overview]].
 - [ ] Paste the drafted read-bias + proactive-flagging Instructions text into all 8 of Emile's Cowork projects (separate from the `duo-vert-ops` skill file) — only the Duo Vert project has it applied so far via the GitHub-Context connection.
 - [ ] Check whether Cowork has an account-level (not per-project) Memory/Personalization setting that could cover all 8 projects without connecting the GitHub repo to each individually — check under `Emile · Pro` account settings / Customize.
 

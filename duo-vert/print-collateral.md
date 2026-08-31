@@ -16,8 +16,8 @@ Building a 3-piece print kit for door-to-door sales: flyer, door hanger, busines
 
 ## Current state (2026-08-15 — flyer and business card signed off)
 
-- **Flyer**: signed off. Final front/back live at `~/Documents/duovert-print/flyer/final/duovert-flyer-front.png` and `duovert-flyer-back.png`. All intermediate draft versions (v2 through v12, ~16 files) were cleaned up 2026-08-15 as part of a broader Mac file-organization pass — see [[personal/mac-file-organization]]. Going forward, iterate by editing in place, don't leave numbered drafts sitting around — see [[feedback/edit-in-place-no-version-sprawl]].
-- **Business card**: signed off 2026-08-15 — Emile picked the "photo" version (real project photo background, "DUO VERT · PAVÉ-UNI · GATINEAU & OTTAWA") over the illustrated-tree-logo version. Final file: `~/Documents/duovert-print/duovert-businesscard-v3-photo.html`. The illustrated version and its file were discarded (moved to Trash). Also present: `vistaprint-export/duovert-card-front.png` + `duovert-card-back.png` (exported render of the final design for Vistaprint upload).
+- **Flyer**: signed off. Final front/back live at `~/Documents/Duo Vert/duovert-print/flyer/final/duovert-flyer-front.png` and `duovert-flyer-back.png`. All intermediate draft versions (v2 through v12, ~16 files) were cleaned up 2026-08-15 as part of a broader Mac file-organization pass — see [[personal/mac-file-organization]]. Going forward, iterate by editing in place, don't leave numbered drafts sitting around — see [[feedback/edit-in-place-no-version-sprawl]].
+- **Business card**: signed off 2026-08-15 — Emile picked the "photo" version (real project photo background, "DUO VERT · PAVÉ-UNI · GATINEAU & OTTAWA") over the illustrated-tree-logo version. Final file: `~/Documents/Duo Vert/duovert-print/duovert-businesscard-v3-photo.html`. The illustrated version and its file were discarded (moved to Trash). Also present: `vistaprint-export/duovert-card-front.png` + `duovert-card-back.png` (exported render of the final design for Vistaprint upload).
 - **Door hanger** (`doorhanger/doorhanger-v3-preview.png`, 3.5×8.5in) — status unclear, was "built once early, needs a revisit pass" as of 2026-08-13; not addressed in the 2026-08-15 session. Confirm with Emile whether it still needs syncing to the flyer/card's final visual system before ordering.
 
 ## Design system settled on (apply to all 3 pieces)
@@ -27,7 +27,7 @@ Building a 3-piece print kit for door-to-door sales: flyer, door hanger, busines
 - Real Google "G" logo (multicolor, official paths) in a small white chip — a hand-drawn stroke-icon version was rejected as "not the real logo."
 - One consolidated CTA anchored at the QR block ("Réservez votre soumission gratuite" + "Scannez le code ci-dessus") — a separate boxed "button" CTA was rejected as looking like a clickable web element on a non-clickable print piece.
 - No diagonal-stripe/repeating-gradient "texture" — read as dated ("années 80"), removed everywhere.
-- Photos: real site photos from `~/Documents/duovert-site/public/` (hero-restauration, avant/apres-pave-uni-gatineau-1 and -2, emile-beckett-final.jpg cropped tight to head+chest+logo — see crop notes below).
+- Photos: real site photos from `~/Documents/Duo Vert/duovert-site/public/` (hero-restauration, avant/apres-pave-uni-gatineau-1 and -2, emile-beckett-final.jpg cropped tight to head+chest+logo — see crop notes below).
 
 ## Hard-won technical lessons (avoid repeating)
 

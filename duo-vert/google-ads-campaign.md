@@ -49,6 +49,12 @@ Reached the payment step and **could not add a card** — it's Beckett's card, h
 
 What actually worked: copying the exact URL of the in-progress campaign-builder page (from the Claude Browser pane session) and pasting it into the other browser — this loaded the draft successfully. **Not yet verified whether this is a true account-level save or just a session-cookie artifact** — should have Émile sign out and back in, then retest the same URL, to confirm before relying on it with Beckett. If the link doesn't survive a sign-out/sign-in cycle, treat this file as the full rebuild spec instead — every decision above should be enough to recreate the campaign from scratch without re-deciding anything.
 
+## Correction (2026-08-15)
+
+Reopened the campaign wizard and found it's actually a **Performance Max** campaign, not the Search campaign documented above — either a separate draft was created, or the type changed at some point. This matters a lot: Performance Max has no manual keyword list, Google's AI picks placements (Search, Display, YouTube, Gmail, Maps) and by default uses **URL expansion**, which is likely why Émile is seeing ads redirect to the homepage instead of the chosen landing page. The wizard's step-progress circles are not clickable (confirmed by testing) — can't jump back to earlier steps once at payment; safer to finish submitting and fix URL expansion / final URL afterward in the normal campaign editor rather than risk the browser back button losing entered data.
+
+**Action needed:** verify in the live account which campaign type actually exists before assuming the Search campaign spec above is what's running — the two are not reconcilable (Search campaign settings like "Final URL expansion off" don't carry over into a Performance Max asset group).
+
 ## Still open
 
 - Confirm the draft URL survives sign-out/sign-in (untested as of session end).
@@ -57,5 +63,14 @@ What actually worked: copying the exact URL of the in-progress campaign-builder 
   directly.
 - Once live: check cost-per-lead after 3-4 days (not a full month) as an early kill-switch check, given Émile's real financial pressure this summer.
 - Revisit budget tier once real performance data exists — could scale to $43.49+ if $18.70 proves the concept and Beckett/Émile want more volume.
+
+## Decision (2026-08-18): skipped, not launching this season
+
+Émile and Beckett decided to **skip Google Ads for the rest of this season** — never launched
+(payment-card block was never resolved). Reason: Meta ads (which they already knew and were
+comfortable with) started performing much better once Beckett came back, and it's end of season
+— they want to keep lead generation simple rather than run two channels. See
+[[duo-vert/revenue-growth-plan]] for the Meta ads performance numbers and the doubled-budget
+decision. This file remains the full rebuild spec if Google Ads gets revisited for next season.
 
 See also: [[duo-vert/backlink-campaign]], [[duo-vert/seo-history]], [[duo-vert/company]]
