@@ -129,7 +129,7 @@ for — adding 2 more users, especially ones entering data from a phone mid-door
 makes that structural mismatch worse, not better; (2) this reconnects directly to the
 root problem already identified below (personal-phone-number visibility gap) — that
 gap gets more painful with 2 more people texting/calling from their own numbers, and
-only a real shared-number platform (GHL, or the already-connected [[Sent]] messaging
+only a real shared-number platform (GHL, or the already-connected "Sent" messaging
 tool) fixes it, no amount of better spreadsheet design can; (3) a custom-built private
 web app is appealing for control but represents real ongoing engineering surface
 (mobile UX, auth, reliability in the field with real money on the line during the

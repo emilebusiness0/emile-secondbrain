@@ -3,7 +3,7 @@ name: duo-vert-2027-season-plan
 description: "2027 season planning brainstorm: UGC ad talent strategy, storage unit, brand identity goal, employee culture/vibe goals, legal/tax prep, crew training, CRM (GoHighLevel), off-season prep discipline"
 metadata:
   type: project
-  modified: 2026-08-26
+  modified: 2026-09-01
 ---
 
 **Started 2026-08-26**, a "what else are we thinking about for next summer" brainstorm
@@ -230,17 +230,10 @@ as a goal/intent alongside everything else in this file.
 
 ## 9. Full English translation of the website
 
-**Decided 2026-08-26:** duplicate the entire duovert.ca site into English (not just
-the existing scattered English title/meta-tag fixes already tracked in
-[[project-current-todo-list]] item 8) — a full translated version of every page.
-Timeline: planned for this winter, part of the same off-season prep push (see
-section 0). Makes sense given the existing English-speaking service area already on
-file (Ottawa + several Ottawa neighborhoods, see [[duo-vert/company]]) — currently
-the site is French-first with only partial English SEO patchwork. Not yet scoped:
-URL structure/hreflang approach, whether it's a full parallel site or a language
-toggle, who does the translation (professional vs. AI-assisted), and how it
-interacts with the SEO work already logged in [[duo-vert/website-build-overview]]
-and [[duo-vert/seo-history]].
+**Decided 2026-08-26, shipped 2026-08-29 — well ahead of the winter timeline this
+section originally planned for.** All 24 content-page pairs, thank-you pages, and
+all 3 legal-page translations are built, verified, and live. See
+[[duo-vert/bilingual-site]] for the full record.
 
 ## 10. Everything else already discussed rolls into this same prep window
 

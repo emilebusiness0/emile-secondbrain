@@ -15,7 +15,7 @@ timing), have a call with the coach to discuss what kind of site he wants, then 
 the build.
 
 This is Emile's first concrete lead for the "other client sites" ambition already noted
-in [[personal-website-build-playbook]] (no agency/brand name yet as of 2026-08-05) — the
+in [[personal/website-build-playbook]] (no agency/brand name yet as of 2026-08-05) — the
 playbook's structural defaults (hero sizing, SEO checklist, content process, local-build
 workflow) apply here once the project starts. No details yet on the coach's business
 specifics, target audience, or site scope — that's what the discovery call is for.
@@ -30,5 +30,5 @@ the coach as a possible CRM client too, not just a website one ("maybe he pays f
 maybe he doesn't"). Not discussed with the coach, not scoped — just a possibility to keep
 in mind for the eventual discovery call.
 
-See also: [[personal-website-build-playbook]], [[duo-vert/season-2027-plan]],
+See also: [[personal/website-build-playbook]], [[duo-vert/season-2027-plan]],
 [[personal/agency-idea]]
