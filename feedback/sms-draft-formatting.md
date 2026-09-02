@@ -3,7 +3,7 @@ name: feedback-sms-draft-formatting
 description: "Draft SMS/text messages inside a fenced code block, not plain markdown paragraphs"
 metadata:
   type: feedback
-  modified: 2026-08-03
+  modified: 2026-08-20
 ---
 
 When drafting a text message for Emile to copy-paste and send (SMS, not email), put it inside a fenced code block (triple backticks), not as plain markdown paragraphs.

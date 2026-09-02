@@ -4,7 +4,7 @@ description: "Emile's Cégep course list (Automne 2026) and the file organizatio
 metadata: 
   node_type: memory
   type: project
-  modified: 2026-08-26T23:25:06.813Z
+  modified: 2026-08-27
   originSessionId: a7c3de25-144d-4948-b982-8fef84e44b87
 ---
 

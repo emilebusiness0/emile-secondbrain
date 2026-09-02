@@ -3,7 +3,7 @@ name: avoid-subagents-for-hands-on-builds
 description: For build/implementation work Emile is actively directing (like the CRM prototype), do the work directly instead of spawning Agent/Plan/Explore subagents — he finds them token-expensive and not useful for this kind of close, iterative work
 metadata:
   type: feedback
-  modified: 2026-08-28
+  modified: 2026-08-29
 ---
 
 Stated explicitly 2026-08-28, mid-way through CRM prototype planning, after I'd

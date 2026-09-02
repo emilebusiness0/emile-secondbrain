@@ -3,6 +3,7 @@ name: walkthrough-direct-steps
 description: When walking Emile through an external platform's UI, give direct numbered click-by-click steps, not clarifying questions
 metadata:
   type: feedback
+  modified: 2026-08-29
 ---
 
 When guiding Emile through a third-party website/dashboard he's unfamiliar with

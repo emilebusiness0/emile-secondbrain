@@ -3,7 +3,7 @@ name: ask-detailed-specs-before-building
 description: For structured deliverables and personal/professional content, ask what belongs in each section before drafting or entering it, don't fill things in unilaterally and present them after the fact
 metadata:
   type: feedback
-  modified: 2026-08-27
+  modified: 2026-08-29
 ---
 
 Ask what Emile wants in each section of a deliverable before writing or entering content, rather than drafting everything myself and presenting it as done. This applies to structured data (spreadsheet columns, form fields) and to personal/professional content (LinkedIn profile sections, bios, descriptions) alike.

@@ -3,7 +3,7 @@ name: mac-file-organization
 description: Ongoing project to organize/clean up files on Emile's new Mac (got it ~2026-07-30)
 metadata:
   type: project
-  modified: 2026-08-18
+  modified: 2026-08-26
 ---
 
 Emile asked (2026-08-15) for help organizing and clearing out files on his Mac — got the computer about 2 weeks prior (see [[personal/about-emile]]), and a lot of one-time-use files have accumulated with no system in place yet.

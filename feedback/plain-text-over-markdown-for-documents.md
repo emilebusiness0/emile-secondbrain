@@ -3,6 +3,7 @@ name: plain-text-over-markdown-for-documents
 description: For files Emile opens outside Obsidian, prose notes get plain .txt, structured/row-based lists get a real .xlsx — never raw markdown
 metadata:
   type: feedback
+  modified: 2026-08-28
 ---
 
 Never hand Emile a `.md` file with markdown syntax (`#`, `|` tables, `**bold**`) for

@@ -4,7 +4,7 @@ description: "Emile testing whether he can build his own custom CRM (with custom
 metadata: 
   node_type: memory
   type: project
-  modified: 2026-08-29T00:04:17.232Z
+  modified: 2026-08-31
   originSessionId: 37c90df8-fa63-4f3a-b1db-ddc3345c606b
 ---
 
@@ -1165,7 +1165,7 @@ suggestions on how to use AI well in the CRM, not just build-on-request —
 worth proactively bringing ideas in future sessions, not only reacting to
 what he asks for.
 
-## Round 9 — instant auto-reply + AI daily digest (scoped 2026-08-30, plan mode, not yet built)
+## Round 9 — instant auto-reply + AI daily digest (shipped and verified 2026-08-30)
 
 Confirmed via AskUserQuestion: build both ideas flagged at the end of Round 8.
 
@@ -1293,7 +1293,7 @@ templated messages to work the same way (fixed text + name substitution),
 not everything needs to be AI-drafted - he was explicit that the AI-drafted
 approach was NOT what he wanted for this specific message.
 
-## Round 10 — digest trend/advisory layer, scoped 2026-08-31 (plan mode, not yet built)
+## Round 10 — digest trend/advisory layer, shipped and verified 2026-08-31
 
 Confirmed via AskUserQuestion, picking up the layer deferred at the end of
 Round 8/9 (1-2 week trend analysis, proactive suggestions like "engagement
