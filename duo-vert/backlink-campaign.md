@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 555f7e4f-2052-42fd-bc87-be47a4294732
-  modified: 2026-08-29
+  modified: 2026-08-31
 ---
 
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
@@ -18,8 +18,8 @@ Duo Vert has almost none. Backlinks/citations are the actual lever, not more on-
 **Why: Émile has only had one client this summer and is under real financial pressure.**
 SEO/backlinks cannot rescue this specific summer (too slow); paid Google Ads was proposed as
 the fast-lead lever — the campaign was actually built in the Google Ads console 2026-08-09,
-see [[duo-vert/google-ads-campaign]] for every setting and its current status (blocked on
-Beckett adding his payment card).
+see [[duo-vert/google-ads-campaign]] for every setting — decided skipped for the season
+2026-08-18 (Meta ads performing better instead), full spec kept for a next-season revisit.
 
 **How to apply:** if Émile brings up ranking/revenue frustration again, don't re-litigate
 whether backlinks matter — that's settled. Pick up the tracker below. Don't suggest asking

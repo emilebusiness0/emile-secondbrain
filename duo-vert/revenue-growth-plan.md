@@ -3,10 +3,10 @@ name: duo-vert-revenue-growth-plan
 description: "The 5-advisor LLM council verdict on getting Duo Vert leads before season end, plus the resulting priority list actually executed"
 metadata:
   type: project
-  modified: 2026-08-28
+  modified: 2026-08-31
 ---
 
-**Update 2026-08-19:** quoted a client (Rukia, 91 rue de Bourdon, Gatineau — interlock restoration, ~4,352 sq ft) $8,500 labour, plus an estimated $1,500 in materials billed separately at cost — more than double the typical $600–4,000 project ceiling, and still under the ~$10.7–15K market rate estimate for that scope. Would be the biggest job on record if it closes. Draft reply sent with area + materials estimate; still pending her response as of this date.
+**Update 2026-08-19:** quoted a client (Rukia, 91 rue de Bourdon, Gatineau — interlock restoration, ~4,352 sq ft) $8,500 labour, plus an estimated $1,500 in materials billed separately at cost — more than double the typical $600–4,000 project ceiling, and still under the ~$10.7–15K market rate estimate for that scope. Would be the biggest job on record if it closes. Draft reply sent with area + materials estimate; still pending her response as of this date. **Never re-confirmed** — the "Final 2026 season tally" below (5 jobs, logged 2026-08-25, six days later) doesn't say whether this job is one of the 5 or fell through; confirm directly with Emile rather than assuming either way.
 
 Context: one client all summer 2026 despite peak season, real financial pressure — see
 [[duo-vert/backlink-campaign]] for the original diagnosis. On 2026-08-12, ran a 5-advisor LLM

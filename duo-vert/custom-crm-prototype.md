@@ -1103,7 +1103,7 @@ table showing which of the 10+ city pages actually get search traffic vs.
 which don't, real device/country tables). `tsc`/`eslint`/`next build` all
 clean on the full `src` tree throughout.
 
-## Ideas for next session (2026-08-29, end of day — not yet built)
+## Ideas for next session (2026-08-29, end of day — recap below; digest + instant auto-reply shipped in Round 9, digest advisory layer in Round 10, see below)
 
 Emile signed off for the night with two feature ideas for a future session,
 explicitly "probably tomorrow":
@@ -1137,8 +1137,11 @@ been seen in practice. Emile also asked generally for "any other suggestions
 to make this the best CRM" — open standing invitation, nothing else proposed
 yet.
 
-Neither idea is built yet — this is a save-for-next-session note, end of a
-long day (Rounds 6-8 all happened in one sitting).
+This was a save-for-next-session note, end of a long day (Rounds 6-8 all
+happened in one sitting). Idea 1 (daily digest, including the trend/advisory
+refinement below) and idea 2(a) (instant auto-reply) shipped in Round 9/10
+below. Idea 2(b) (follow-up nudge after N days of no reply) is still open —
+not built in either round.
 
 **Refinement to the daily digest idea (same conversation, right before
 sign-off):** the AI shouldn't just recap the day — it should look at trends

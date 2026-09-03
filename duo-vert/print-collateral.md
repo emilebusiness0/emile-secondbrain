@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: 1f0b5c08-2c27-432c-90ca-34b7b04ef3a6
-  modified: 2026-08-29
+  modified: 2026-08-31
 ---
 
 Building a 3-piece print kit for door-to-door sales: flyer, door hanger, business card — glossy cardstock via Vistaprint. Session started 2026-08-11.
