@@ -45,5 +45,18 @@ the Sep-Dec 2026 one. If asked to write social media content more broadly (Insta
 Facebook) it's worth confirming whether the same "no sales, sound human" rule should
 extend there too, since it wasn't explicitly stated for those channels.
 
+**Scope expanded 2026-09-01, second request:** after the first redraft (15 posts, Sep 10
+to Nov 12, all photos) landed, Emile asked to extend the same batch through end of
+February/start of March 2027 on the same 4-5 day cadence, and to use native video posts
+too, not just photo stills, since Google Business Profile supports short video uploads
+directly. Direction given: "you can cut videos, make them the right length just be real
+smart with what you do" — trim/select clips rather than force full raw length. Also
+explicit: when two photos or videos are similar in subject, don't place them close
+together in the schedule, spread similar content out across weeks instead of back to
+back. This roughly doubles the post count from the first pass since it covers a much
+longer date range.
+
+**Publishing approach, pilot decided 2026-09-01:** rather than submitting all 39 scheduled posts in one sitting (repeating the exact bulk-submission pattern already suspected of getting the Aug 23 post rejected), Emile chose to test with the first 10 posts (Sep 10 through Oct 20) and see what happens before scheduling the rest. All 10 were confirmed scheduled and clean (no rejections) shortly after, so Emile approved continuing in batches of 10: a second batch (Oct 25 through Dec 4), a third batch (Dec 9 through Jan 18), and a final batch of 9 (Jan 23 through Feb 28 2027) were all scheduled the same session, mixing photos and native videos throughout, all confirmed clean with no rejections at any point. **Status as of 2026-09-01: all 39 of 39 posts scheduled, batch complete.** The entire Sep 10 2026 through Feb 28 2027 GBP content calendar is now live and scheduled on the real Duo Vert profile. See [[personal/dev-environment]] for how the Playwright/GBP access works and the "Pending" transient video status.
+
 See also: [[feedback/no-em-dashes]], [[duo-vert/website-build-overview]],
 [[duo-vert/company]]

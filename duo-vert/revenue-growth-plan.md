@@ -42,6 +42,32 @@ referral/review call) and item 5 (LSA application) — not tracked anywhere else
 carried on [[project-current-todo-list]]. Item 4 (door-hanger drop) — see
 [[duo-vert/print-collateral]] for current status.
 
+**Item 5 (LSA), researched before starting (2026-09-01):** confirmed via Google's own
+requirements that Local Services Ads approval needs the owner's full legal name + date of
+birth (background check), a general liability insurance certificate, and copies of any
+required provincial/municipal trade license — verification takes 3-4 weeks after
+submission. **This directly connects to the still-unresolved RBQ question in
+[[duo-vert/season-2027-plan]]** (whether the $20,000 exemption threshold applies to a paid
+contractor like Duo Vert, or only DIY property owners — never actually confirmed with the
+RBQ by phone, 1-800-361-0761): without that resolved, the LSA application can still be
+*started* (business info/category/budget don't need it) but will likely stall at Google's
+verification step regardless of how well the form is filled out. Flagged to Emile as a
+reason to consider making the RBQ call before or alongside starting LSA, not after.
+
+**Category fit checked live (2026-09-01):** Emile chose to start the LSA signup flow
+anyway. The eligible-category list on ads.google.com/local-services-ads has no exact
+"paving" or "interlock pavers" entry - closest fits are **Landscaper** or **General
+contractor**. No category picked yet; Emile is doing the actual signup himself (account
+creation + personal legal name/DOB required for the background check, which I don't
+enter on his behalf) with step-by-step guidance, paused before the budget/payment screen.
+
+**Decided skipped for now (2026-09-01, same session):** Emile stopped before signing in -
+initially seemed to conflate LSA with the already-skipped Google Search Ads product,
+clarified they're different (LSA is pay-per-lead + Google Guaranteed badge, not
+pay-per-click), then after understanding what it actually does decided to skip it for now
+anyway. Not started (no account created, no sign-in happened). Revisit once the RBQ
+question is resolved - that was the real blocker being surfaced right as this got parked.
+
 ## Google review replies (started 2026-08-13 session, status unconfirmed since)
 
 Working through 9 previously-unreplied 5-star Google reviews (Lucas, Jacob Phillion, Stephen

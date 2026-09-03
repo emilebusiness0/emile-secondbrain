@@ -641,263 +641,17 @@ steps (Business verification + Developer App) this round. The Google Ads
 code is already built and waiting; revisit the setup steps once the campaign
 launches.
 
-**Meta Business Manager verification status (checked 2026-08-29, business_id
-1054795476582095):** Security Center's "Verification for Duo Vert" section
-shows **"Ineligible for verification"** ("Your organization does not need to
-be verified"), not a start-verification button. Told Emile this likely just
-means Business Info isn't fully filled in yet (legal name/address/phone/
-duovert.ca website) — pointed him back to the Business Info page to complete
-it and recheck. Also flagged that this standalone Business Manager
-verification isn't necessarily a hard blocker: the later Meta App Review step
-(for `pages_messaging`/`instagram_manage_messages`) has its own verification
-check built in, so the Developer App creation step can proceed in parallel
-rather than waiting on this specific badge to change. Worth confirming next
-session whether filling in Business Info actually unlocked it.
+**Meta OAuth connection — debugged and resolved end-to-end (2026-08-29).** Created a Meta Developer App ("Duo Vert CRM", App ID `2076667483235970`) under the Duo Vert Business Portfolio with Marketing API, Messenger, Instagram messaging, and "Facebook Login for Business" (found under classic Products, not the use-case gallery). `META_APP_ID`/`META_APP_SECRET`/`META_REDIRECT_URI` set in `.env.local`; localhost redirects work automatically in Development mode, no manual allow-list needed.
 
-**Meta Developer App created and connected — live as of 2026-08-29.** App
-named "Duo Vert CRM" (App ID `2076667483235970`), created under the Duo Vert
-Business Portfolio, use cases added: Marketing API (create/manage ads,
-measure performance, capture leads), Messenger, Instagram messaging, plus the
-separate "Facebook Login for Business" product (found under classic
-Products, not the newer use-case gallery — that's where the OAuth
-capability actually lives). No redirect URI needed to be manually added for
-localhost — Facebook auto-allows `http://localhost` redirects while the app
-is in Development mode; only the real production URL will need adding later.
-`META_APP_ID`/`META_APP_SECRET`/`META_REDIRECT_URI` are now set in
-`.env.local` (Emile pasted the secret directly into chat rather than the
-file himself — added on his behalf this time, noted to him for next time to
-paste secrets straight into files instead). Server restarted, Settings page
-confirmed showing a live "Connecter Meta" button with the setup instructions
-gone. Next actual step is clicking that button to complete the OAuth
-connection — not yet done as of this entry.
+Two early bugs fixed on the first connect attempt: (1) every `render={<Link .../>}` connect button was missing `nativeButton={false}` (Base UI's `Button` defaults `nativeButton` true and misbehaves with a non-`<button>` render target) — worth remembering for any future connect-style button using this pattern; (2) `instagram_manage_messages` was rejected as an invalid scope on the first OAuth attempt — Instagram DM sending needs an Instagram account linked as a tester first, so the scope was pulled out temporarily (ads tracking + Facebook Messenger proceeded without it).
 
-**First real connect attempt hit two bugs, both fixed same session
-(2026-08-29):**
-1. **Pre-existing Base UI bug, not new to this round:** every `render={<Link
-   .../>}` Button in the codebase (Gmail, Meta, Google Ads connect buttons)
-   was missing `nativeButton={false}` — Base UI's `Button` defaults
-   `nativeButton` to true, and warns/misbehaves when the `render` prop
-   points at a non-`<button>` element like Next's `Link` (which renders an
-   `<a>`). Fixed on all three in `src/app/(app)/settings/page.tsx`. Worth
-   remembering for any future connect-style button using this pattern: always
-   pass `nativeButton={false}` alongside a `render={<Link .../>}`.
-2. **Meta rejected `instagram_manage_messages` as an "Invalid Scope"** on the
-   very first OAuth attempt — not a permission-denied error, an outright
-   invalid-scope rejection, meaning the Instagram product likely needs an
-   Instagram account linked as a tester (under the Instagram product's own
-   settings in the Meta dashboard) before that specific scope becomes
-   requestable at all. Temporarily removed it from `SCOPES` in `src/lib/
-   meta.ts` so the rest of the connection (ads tracking + Facebook Messenger)
-   can proceed — Instagram DM sending stays blocked until this is
-   investigated further and the scope re-added. Flag for next session: check
-   the Instagram product's tester/account-linking settings in the Meta
-   dashboard before re-adding `instagram_manage_messages`.
+**Real architecture lesson, the expensive one:** "Facebook Login for Business" and classic "Facebook Login" are NOT interchangeable despite the similar name — the Business variant needs a **Login Configuration** (App Dashboard → Facebook Login for Business → Configurations) yielding a **Configuration ID**, and the OAuth URL needs `config_id=<that ID>` instead of a plain `scope=` param. Final Configuration: `ads_read`, `pages_show_list`, `pages_messaging`, `pages_manage_metadata`, `instagram_basic`, `leads_retrieval`, `pages_read_engagement` (deliberately excluded `ads_management`/`pages_manage_ads`/`business_management` — no built feature uses them yet, and Meta App Review scrutinizes write-permissions with no matching feature; cheap to add later once a real feature needs one), access token type **User access token**, Configuration ID `1374487200930344`.
 
-**Architecture snag found live (2026-08-29): "Facebook Login for Business"
-needs config_id-based OAuth, not plain scope params.** After fixing the two
-bugs above, the actual OAuth flow still failed with "Aucune Page Facebook
-trouvée pour ce compte" even though Emile is Full-access admin on both the
-app and the Duo Vert Page. Spent a long back-and-forth trying to fix this via
-Business Manager asset-linking (Business Settings → Pages/Apps → Connect
-assets) — that was the wrong path entirely; the "Connect assets" dialog on
-an App only offers Ad accounts, no Pages option at all. Root cause: because
-the product added was **"Facebook Login for Business"** (not classic
-"Facebook Login"), Meta's Login-for-Business flow requires a **Login
-Configuration** created in the app dashboard (App Dashboard → Facebook Login
-for Business → Configurations → Create Configuration, asset type "Pages",
-permissions `pages_show_list`+`pages_messaging`) which yields a
-**Configuration ID** — the OAuth URL then needs `config_id=<that ID>`
-instead of (or alongside) the plain `scope=` parameter our `meta.ts` code
-currently sends. The Page-selection itself happens live inside that
-config-driven login dialog (an asset picker), not pre-wired via Business
-Settings. **Code fix not yet applied — waiting on Emile to create the Login
-Configuration and send back the Configuration ID**, then `getMetaAuthUrl()`
-in `src/lib/meta.ts` needs updating to build the URL with `config_id`. Worth
-remembering broadly: "Facebook Login for Business" and classic "Facebook
-Login" are NOT interchangeable products despite the similar name — the
-Business variant uses configs, not raw scopes, and any future Meta OAuth
-integration should check which product got added before assuming plain
-scope-based `dialog/oauth` URLs will work.
+Even with `config_id` wired in, the connection kept failing with "no Page found" — a long debugging chain (~10 back-and-forth rounds, `auth_type=rerequest` tried and reverted since it made Facebook *skip* the picker instead of forcing it; the real app-revoke location turned out to be `facebook.com/settings?tab=business_tools`, not `tab=applications`, which doesn't list Business-Portfolio-connected apps at all) eventually isolated the real cause via temp debug logging: **`/me/accounts` does not list Pages owned by a Business Manager** (as opposed to a personally-created Page) — a known Graph API edge case. The Duo Vert Page is owned by the business, not by Emile personally, so the standard "list my accounts" call always returned empty even with every permission correctly granted and the Page correctly selected in the consent picker (which, separately, only ever shows once per grant — revoking is required to see it again, not any OAuth URL parameter).
 
-**Login Configuration permission set, decided 2026-08-29:** access token type
-= **User access token** (not System-user — that needs a totally different,
-server-to-server code path our current `/api/auth/meta/callback` doesn't
-implement). Permissions checked: `ads_read`, `pages_show_list`,
-`pages_messaging`, `pages_manage_metadata` (needed so the Page can actually
-be subscribed to webhook events for real-time DM receiving), `instagram_basic`,
-and — Emile's explicit call — **`leads_retrieval`** added proactively even
-though no code uses it yet, specifically to avoid having to redo this
-Configuration later when Meta Lead Ads auto-import gets built (a real
-feature idea, not yet scoped/built — see the deferred-ideas list earlier in
-this file). Explicitly skipped: `ads_management`, `business_management`,
-`catalog_management`, `pages_manage_ads`, `pages_read_engagement`,
-`ads_mcp_management` — none used by any built code, and requesting only what's
-actually used keeps future App Review simpler.
+**Fix:** fetch the Page directly by its known ID (`GET /1228204477033457`) instead of listing via `/me/accounts`. Rewrote `exchangeCodeForMetaAccount` accordingly, added `META_PAGE_ID=1228204477033457` as a required env var. Connection confirmed working end-to-end via direct SQLite query (`MetaAccount` row has the real pageId/pageName/linked Instagram id) and a real ad-account auto-discovery. **Worth remembering broadly for any future Meta Graph API integration on a Business-Manager-owned Page: don't rely on `/me/accounts` to discover the Page, fetch it directly by its known Page ID instead** — this single finding would have skipped roughly ten rounds of debugging if known upfront.
 
-**Revised after Emile pushed back (same session):** he questioned skipping
-several permissions since they "could be useful." Landed on: **added
-`pages_read_engagement`** (Page post/follower analytics — read-only, real
-potential Reporting-dashboard value, same standard as leads_retrieval: a
-plausible concrete feature, not used yet). **Held the line on
-`ads_management`, `pages_manage_ads`, `business_management`** — explained the
-actual reasoning (not just "keep it minimal"): Meta's App Review evaluates
-each requested permission separately and typically wants a screen recording
-showing the app actually using it; requesting write-level ad/business
-management permissions with no matching feature in the product is a common
-rejection reason, and would add review risk to the read-only pieces that ARE
-ready. Also noted adding a permission later (once a real feature exists) is
-cheap — just edit this same Login Configuration, users re-consent on next
-login, no rebuild — so there's no real cost to waiting versus requesting
-speculatively. Emile didn't name a concrete use case for these three, so
-they stay out for now; revisit if/when one comes up.
-
-**Config_id fix applied (2026-08-29):** final Login Configuration permission
-set: `ads_read`, `pages_show_list`, `pages_messaging`,
-`pages_manage_metadata`, `instagram_basic`, `leads_retrieval`,
-`pages_read_engagement` — access token type User access token — Configuration
-ID `1374487200930344`. `src/lib/meta.ts`'s `getMetaAuthUrl()` rewritten to
-send `config_id` instead of `scope` in the OAuth URL (the plain-`scope`
-`SCOPES` array is gone entirely — permissions now live only in the Meta
-dashboard Configuration, edit there to change them, no code change needed).
-`isMetaOAuthConfigured()` now also requires `META_LOGIN_CONFIG_ID`.
-`.env.local` updated with that value. `tsc` clean, server restarted. Not yet
-verified end-to-end — Emile about to retry the "Connecter Meta" click with
-this fix live.
-
-**Still failing after config_id fix - stale cached authorization suspected.**
-Retried and got the exact same "no Page found" error, even with config_id
-live. Likely cause: Facebook was silently reusing Emile's *earlier* (pre-fix)
-authorization grant, which never included Page access, rather than
-re-showing the asset picker. Fix: added `auth_type: "rerequest"` to the
-OAuth URL in `getMetaAuthUrl()` to force the full consent/picker dialog every
-time instead of trusting a cached prior grant. Also told Emile to manually
-revoke the app first via facebook.com/settings?tab=applications for a
-guaranteed clean slate on this retry. `tsc` clean, server restarted again.
-Still not verified end-to-end as of this entry - next session should check
-whether this combination (revoke + auth_type=rerequest) actually got a
-successful "Connecté" state, or whether the underlying page-not-found issue
-has a different root cause entirely (e.g. this specific config_id
-Configuration itself not actually granting Pages access despite
-`pages_show_list` being checked - worth re-verifying the Configuration's
-settings in the dashboard if this next retry still fails).
-
-**`auth_type=rerequest` made it WORSE, reverted.** Emile's actual click-by-
-click account of the two attempts clarified what really happened:
-*before* `auth_type=rerequest` was added (the plain config_id attempt), he
-correctly saw the real multi-slide Login-for-Business consent/asset-picker
-flow (5-6 screens) — but clicked "OK" through all of them without the Page
-actually ending up selected, still landing on "no Page found." *After* adding
-`auth_type=rerequest`, the flow got SHORTER — one screen, immediate redirect
-— meaning that param made Facebook skip the real picker instead of forcing
-it, the opposite of the intended fix. Reverted `auth_type=rerequest` out of
-`getMetaAuthUrl()` entirely (comment left in `meta.ts` explaining why, so a
-future session doesn't re-try it). Real next step: Emile revoking the app via
-facebook.com/settings?tab=applications for a genuinely clean state, then
-going through the multi-slide flow again slowly, specifically checking each
-slide for a Page-selection UI and making sure Duo Vert's Page gets actively
-selected/toggled on rather than skipped past. Not yet confirmed working as
-of this entry.
-
-**Root cause isolated via temp debug logging (2026-08-29), still unresolved.**
-Added temporary `console.log` calls in `exchangeCodeForMetaAccount`
-(`src/lib/meta.ts`) printing `/me/permissions` and the raw `/me/accounts`
-response. Real output after a retry:
-`granted permissions: pages_show_list, ads_read, pages_messaging,
-instagram_basic, leads_retrieval, pages_read_engagement,
-pages_manage_metadata, public_profile — ALL "granted"`, but
-`/me/accounts raw response: {"data":[]}`. This proves **permissions and
-Page-sharing are two separate things** in the Login-for-Business flow: the
-`pages_show_list` permission is granted fine, but no actual Page ever gets
-shared/selected through the asset-picker step — so the picker slide that
-lets you check off which Page(s) to share is either not being shown, or
-Emile is clicking past it without the Page getting selected. Debug logging
-left in place (marked TEMP, remove once resolved) for whoever picks this up
-next. **Next diagnostic step, not yet done:** get Emile to screenshot every
-single slide of the login flow in sequence (not just describe them) to find
-the actual Page-selection screen and see what's happening there.
-
-**Real breakthrough — found the actual revoke location and the missing Page
-picker (2026-08-29).** A later retry showed only ONE slide (not the full 5-6
-screen flow) — root cause: Facebook only shows the full consent review the
-very first time; since permissions were already granted (confirmed by the
-debug log above), every later click was silently re-authenticating without
-re-showing anything, including the Page picker that was never actually
-reached. `facebook.com/settings?tab=applications` ("Apps and Websites") does
-NOT list Business-Portfolio-connected apps like this one — the correct place
-is **`facebook.com/settings?tab=business_tools`** ("Business Integrations").
-Revoking there and retrying finally surfaced the real, previously-unseen
-first slide: **"Choose the Pages you want Duo Vert CRM to access"** with
-"Opt in to all current and future Pages" vs "Opt in to current Pages only" —
-this is the actual Page-selection step that was silently being skipped this
-whole time on every retry after the first. Told Emile to pick "current Pages
-only" and check the Duo Vert Page specifically. Not yet confirmed the full
-flow completes successfully past this point, but this is very likely the
-actual fix — **worth remembering broadly for any future Meta Business
-Integration debugging: revoke via `tab=business_tools`, not
-`tab=applications`, and expect the full consent flow (including any asset
-picker) to only show once per grant — revoking is required to see it again,
-not any OAuth URL parameter.**
-
-**Still empty even after explicitly selecting the Page in the picker.**
-Emile completed the full flow (chose "current Pages only," checked the Duo
-Vert Page), but `/me/accounts` still returned `{"data":[]}` on the next
-attempt. Added a second debug check comparing the SHORT-lived token directly
-against `/me/accounts` (before the `fb_exchange_token` long-lived upgrade) —
-also came back empty, ruling out the long-lived exchange step as the cause;
-both token stages see zero Pages. Current working theory: `/me/accounts`
-may not list Pages owned by a Business Manager (as opposed to personally-
-created Pages) the normal way — the Duo Vert Page is explicitly
-"Owned by: Duo Vert" (the business), not personally owned by Emile, which
-matches this known Graph API edge case. Added a third debug check: a direct
-`GET /1228204477033457` (the known Page ID, from the earlier Business
-Settings screenshot) instead of listing via `/me/accounts`, to see if the
-Page is reachable directly even though the list endpoint won't show it.
-Result not yet in as of this entry — if the direct fetch succeeds, the real
-fix is switching `exchangeCodeForMetaAccount` to fetch the Page by its known
-ID rather than relying on `/me/accounts` at all (though that trades away
-being able to auto-discover a Page for any future business without a
-hardcoded ID — would need a different long-term approach, e.g. storing the
-Page ID as a setting instead of hardcoded in debug code).
-
-**RESOLVED, verified end-to-end (2026-08-29).** The direct-fetch-by-ID
-hypothesis confirmed correct: `GET /1228204477033457` returned the full Page
-object (name, page access token, linked Instagram Business account id
-`17841474688341902`) even though `/me/accounts` never listed it. Rewrote
-`exchangeCodeForMetaAccount` to fetch the Page directly by ID instead of
-listing accounts — all debug `console.log` calls removed, code back to
-clean. Added `META_PAGE_ID=1228204477033457` as a new required env var
-(`isMetaOAuthConfigured()` now checks for it too), set in `.env.local`.
-Retried the full connect flow one more time and it genuinely worked:
-Settings shows "Meta ... Connecté — Page connectée: Duo Vert - Restauration
-de pavé uni (Instagram lié)", confirmed independently via direct SQLite
-query (`MetaAccount` row has the real pageId/pageName/instagramAccountId,
-not placeholder data) — and ad-account auto-discovery also fired
-successfully, a real `AdAccount` row appeared (platform META, name "Duo
-Vert", currency CAD) via the `discoverMetaAdAccounts` call in the callback
-route. `tsc`/`eslint` clean. Real inbound/outbound Instagram/Facebook
-messaging is still blocked on Meta's App Review as always, but the
-connection itself — the thing this whole multi-message debugging chain was
-about — is done and confirmed working.
-
-**Full lesson for any future Meta Graph API integration on a
-Business-Manager-owned Page:** don't rely on `/me/accounts` to discover the
-Page — fetch it directly by its known Page ID instead. This single finding
-would have skipped roughly ten back-and-forth messages of debugging if known
-upfront; worth checking first thing next time a similar "no Page/account
-found" error shows up on a Business-owned asset.
-
-**First real sync run, same day.** Clicked "Synchroniser les pubs" on
-`/reporting` — worked cleanly, toast confirmed "1 compte(s) publicitaire(s)
-synchronisé(s)". Real numbers pulled in, confirmed via direct SQLite query:
-a campaign called **"New Leads Campaign"**, 8 days of data, **$346.51
-spent**, 23,153 impressions, 426 clicks. This confirms Duo Vert actually has
-a **live, currently-running Meta Ads campaign** (not just the drafted-but-
-unlaunched Google Ads one from [[duo-vert/google-ads-campaign]]) — worth
-knowing for any future ad-strategy conversation. Ads-vs-revenue charts on
-Reporting now render real data. End of this build/debug session: Meta
-integration (ads tracking + messaging groundwork) is fully live and
-verified, only Meta App Review remains before Instagram/Facebook DMs work
-for real.
+**First real sync, same day:** "Synchroniser les pubs" on `/reporting` pulled real data confirming Duo Vert has a **live, currently-running Meta Ads campaign** ("New Leads Campaign," $346.51 spent over 8 days, 23,153 impressions, 426 clicks) — not just the drafted-but-unlaunched Google Ads one from [[duo-vert/google-ads-campaign]]. End of session: Meta integration (ads tracking + messaging groundwork) fully live and verified, only Meta App Review remains before Instagram/Facebook DMs work for real.
 
 ## Round 7 — ad-performance detail + GA4/Search Console (built same day, 2026-08-29)
 
@@ -1370,3 +1124,622 @@ prompted Emile to float [[personal/agency-idea]] — selling website/CRM builds
 to other businesses using Claude Code, with this CRM as the reusable
 template/proof of concept. Not a change to this prototype's own scope, just
 noting the connection.
+
+## Round 11 — pipeline sort-to-top fix + AI help chatbot, scoped 2026-08-31 (plan mode, not yet built)
+
+Two asks in one session. **(1) Pipeline stage-sort bug:** when a lead's stage
+changes on the kanban board, it lands at the bottom of the destination column
+instead of the top — makes it hard to spot the most recently-moved lead. Root
+cause found: no per-card order field exists, columns sort by `createdAt`
+(never changes on a move), and the optimistic client-side update appends
+rather than prepends. Planned fix: add `Contact.stageChangedAt`, set it in
+`moveContactStage`, sort pipeline columns by it, prepend instead of append
+client-side.
+
+**(2) AI help chatbot — new feature, not requested before.** A floating
+button bottom-right of every screen, click to open a small popover chat.
+Purpose: instant help on how to use the CRM's features/navigation — Emile
+built the whole thing himself and knows it, but even he can forget things,
+and it's flagged as especially useful for **Beckett**, who didn't build the
+CRM and has more to learn navigating it. Explicit scope: no persisted/
+remembered conversation history needed, just quick straight-to-the-point
+answers to an immediate question — not a general assistant, a nothing-fancy
+help lookup. Planned to reuse the existing Gemini integration
+(`src/lib/gemini.ts`, `gemini-3.6-flash`, same pattern as `ai-draft.ts`'s
+`draftMessage`) rather than a new AI dependency, with a system prompt
+describing every CRM section/workflow so it can answer "where do I find X" /
+"how do I do Y" questions grounded in the app's actual structure.
+
+Emile also asked for a broader research pass on other CRM improvements,
+prompting a deeper look at what's already been surfaced-but-not-built across
+this file (weather flags on Calendar, e-signature via DocuSeal, client
+portal, referral-source tracking, speed-to-lead tracking, post-job
+review-request automation, Meta/Facebook Lead Ads auto-import, search-ranking
+month-over-month trend) to present back as an options list — not a specific
+new idea generation pass, a synthesis of the backlog already accumulated in
+this same file across Rounds 1-10.
+
+**Round 11 build: shipped and verified same day (2026-08-31).** Both pieces
+built directly (no subagents for the implementation, per standing
+preference), verified against the real running dev server, not just
+typecheck/build.
+
+**Sort-to-top:** added `Contact.stageChangedAt` (via `prisma db push`, clean),
+set in `moveContactStage` on every real stage change, pipeline query now
+orders by it instead of `createdAt`, and the optimistic client-side move in
+`kanban-board.tsx` now prepends instead of appends. Verified via a real drag
+in the browser (Sophie Bergeron, Nouveau lead → Contacté) landing at the top
+instantly, then confirmed still at the top after a full page reload (proves
+the server-side sort persisted, not just the optimistic UI).
+
+**AI help chatbot:** new `src/app/actions/help-chat.ts` (`answerHelpQuestion`,
+mirrors `ai-draft.ts`'s pattern exactly — same `getGeminiClient()`/
+`GEMINI_MODEL` call, graceful `isGeminiConfigured()` guard that returns a
+message instead of throwing) and `src/components/shared/help-chat-widget.tsx`
+(hand-rolled floating-button + popover, following the existing
+`ai-draft-button.tsx` pattern since no `popover.tsx` primitive exists in this
+codebase), mounted in `src/app/(app)/layout.tsx` so it's on every
+authenticated page but never `/login` (structurally guaranteed by the route
+group, not just a runtime check). Fully stateless as scoped: each question is
+an independent Gemini call with a static system prompt describing every real
+CRM section (Pipeline/Contacts/Digest/Conversations/Discussion/Calendar/Map/
+Documents/Team/Reporting/Training/Settings) — no DB model, no persisted
+history, the visible message bubbles are just local React state that vanish
+on reload. Verified with a real question in the browser ("comment j'envoie
+une soumission à un client?") — answered correctly, pointed to the real
+Soumissions & Contrats /documents section. Checked at mobile width, popover
+stays within `calc(100vw-2rem)`, no overflow. `tsc`/`eslint` clean on the
+full tree.
+
+The options-list synthesis (weather flags, e-signature, client portal,
+referral tracking, etc.) was presented back to Emile for feedback, not acted
+on — no decision made yet on which (if any) to build next.
+
+## Round 12 — performance investigation and fix (2026-08-31)
+
+Emile noticed the CRM felt laggy and worried it'd be slow once actually
+hosted. Measured real page-load times via the browser (not guessing):
+almost every page was already fast (60-120ms warm), but **/digest was taking
+28-34 seconds** and /reporting ~2.5s, both 100% "application-code" time per
+Next's own server logs (not framework/compile overhead).
+
+**Root cause found, not assumed:** two real bugs in `src/lib/
+site-analytics.ts` / `src/lib/digest-trends.ts`.
+1. `websiteSignals()` in digest-trends.ts fetched GA4 sessions then Search
+   Console clicks **sequentially** (two separate try/await blocks) instead of
+   together - unlike `/reporting`'s already-correct `Promise.allSettled`
+   pattern for its 10 GA4/SC calls. Fixed to match: one combined
+   `Promise.allSettled`.
+2. **Bigger find:** `authorizedClient()` created a brand-new `OAuth2Client`
+   instance on every single GA4/Search Console call, so each call
+   re-negotiated a fresh access token via the refresh_token instead of
+   reusing one - googleapis's OAuth2Client caches its access token
+   internally, but only if you reuse the same client instance. /reporting
+   fires ~10 of these calls per load, /digest fires 4 - each was paying its
+   own token-refresh round-trip. Fixed with a module-level cached client
+   instance (keyed by refresh token), shared across calls in the process.
+
+**Real, measured impact:** /digest first load after the fix: 11.9s (still
+real external API+Gemini work), but **every load after that within the same
+process: 450-750ms** (was 28-34s every time before). /reporting: 2.5s → ~0.8-1.2s.
+Verified /digest still renders correct data after the refactor (real
+signals: lead-volume drop, stale-lead list, the stage changes from earlier
+testing all showed up correctly).
+
+**Also addressed the actual underlying worry** ("scared it'll be slow on a
+real site"): built and ran a real production build (`next build` + `next
+start`) side by side with the dev server. Confirmed concretely, not just
+asserted: dev mode (Turbopack) adds real per-request overhead even on
+already-compiled routes (Next's own dev-mode request handling, HMR
+bookkeeping) - the same static /login page took 20-97ms in dev vs 1.5-2.2ms
+in production, a real ~10-50x difference measured via curl on both. Told
+Emile plainly: most of the CRM was never actually slow, dev mode has its own
+baseline tax that goes away entirely in production, and the two real bugs
+found (both now fixed) were the only genuine app-level slowness - not
+something that would have surfaced differently or been masked once actually
+hosted, since Google/Gemini API latency exists in prod too.
+
+Hosting still not acted on (Netlify + Turso + Cloudflare R2 remains the
+researched plan from Round 3's research pass) - this round was diagnosis +
+fix of real measured slowness, not a hosting-readiness pass.
+
+**Real production blocker found the same round: Gemini free tier is a hard
+20 requests/day cap, shared across every AI feature.** Emile hit a 429
+`RESOURCE_EXHAUSTED` error on `/digest` right after this perf work (partly
+from the perf-testing reloads themselves, partly his own testing). Confirmed
+via dev server logs this was NOT a crash - the existing
+`[digest-trends] Gemini phrasing failed` try/catch in `phraseSignals()`
+caught it exactly as designed and fell back to plain-template French text,
+page kept working. But the underlying limit is real and matters for going
+live: `generativelanguage.googleapis.com/generate_content_free_tier_requests`
+is capped at **20/day total per model** (`gemini-3.6-flash`), and this quota
+is shared across ALL Gemini call sites in the app - the help chatbot, AI
+draft assistant, daily digest (up to 2 calls per single page load), and
+auto-reply drafting all draw from the same 20/day pool, not 20 each. Resets
+daily. Real day-to-day use (team opening the digest + asking the help bot
+questions + drafting messages) will exhaust this fast, likely within an
+hour some days - this doesn't get better once hosted, the same wall just
+gets hit by more people. Offered to walk him through enabling billing on the
+Google AI Studio project whenever he's ready; he said hold off for now.
+
+**Real free fix found and applied same day, no billing needed.** Emile asked
+if there's any way to get good-quality AI for free at all. Checked current
+2026 rate-limit info via web search rather than relying on stale training
+data: Gemini's free tier is generally much more generous than 20/day
+(multiple 2026 sources cite ~1,500 requests/day for "Flash" and
+"Flash-Lite" tier models) - the 20/day cap Emile hit is specific to
+`gemini-3.6-flash`, the newer flagship-generation model this app happened
+to be pinned to (from an earlier round's `gemini-2.5-flash` deprecation
+fix), which gets a much stricter free allowance than Google's lighter
+"-lite" model variants. Verified directly against Emile's real API key
+(listed available models, test-called several candidates) rather than
+guessing: `gemini-2.5-flash-lite` is dead (deprecated for new users, same
+pattern that killed `gemini-2.5-flash` before), but `gemini-3.5-flash-lite`
+works and is the exact model Google's own API error message names as the
+current replacement. Switched `GEMINI_MODEL` in `src/lib/gemini.ts` from
+`gemini-3.6-flash` to `gemini-3.5-flash-lite` (one-line change, comment
+explains why). Verified end-to-end: reloaded `/digest` four times in a row
+with zero 429s (previously erroring every single time), and the AI-phrased
+trend text came back genuinely on-brand and grounded (e.g. "Relancez
+rapidement les prospects de la semaine dernière..." instead of the plain
+fallback sentence) - not just "no error," actually working AI output. Quota
+size for `gemini-3.5-flash-lite` on this specific key isn't confirmed to the
+exact number (would require exhausting it to know for sure), but the model
+class matches what current sources describe as the ~1,500/day tier, a huge
+improvement over 20/day. No other file hardcoded the old model name, so this
+was the single fix point for every Gemini call site (help chat, AI draft,
+digest, digest-trends, auto-reply) at once. Worth remembering generally: a
+"free tier too restrictive" complaint on any Gemini integration is worth
+checking model TIER (flagship vs lite) before assuming billing is the only
+fix - and always verify actual model availability/quota against the real
+key rather than trusting a model name from memory, since Google deprecates
+specific model versions for new users fairly often (this is now the second
+time in this project alone).
+
+**Follow-up question, same day: Emile asked about self-hosting his own AI
+("I've heard people... use GitHub to have their own AI with no limits").**
+Researched rather than answered from memory. The specific thing he'd heard
+about is real but dead: **GitHub Models** (free API access to GPT-4.1,
+Llama 4, Mistral, DeepSeek etc. via a GitHub account, no card needed) was
+**retired July 30, 2026**. Separately checked real self-hosting economics
+(running an open model like Llama yourself via Ollama): break-even vs. a
+hosted API only happens around 10-30M requests/day or >$20k/month in API
+spend - nowhere close to a 2-3 person CRM's usage, and would need Emile to
+buy/rent a real GPU and keep a server running 24/7 for it. Advised clearly
+against self-hosting for his situation: the Gemini flash-lite fix above is
+the right answer, not a stepping stone - self-hosting would cost more, not
+less, at this scale. No action taken, purely advisory; worth remembering if
+this comes up again so it isn't re-researched from scratch.
+
+## Round 13 — full quality/bug audit across the whole app (2026-08-31)
+
+Emile asked for a full pass before considering this "one of the last
+steps" — UI, loading time, usability, and a real bug hunt across
+everything, "take your time." Approach: 3 parallel read-only Explore agents
+covering the whole app in sections (Pipeline/Contacts/Digest/Reporting;
+Conversations/Discussion/Calendar/Map; Documents/Team/Training/Settings/
+shared layout), plus a live browser walkthrough (console errors, network
+requests, real interactions) done directly, not delegated. All actual fixes
+applied directly per [[feedback/avoid-subagents-for-hands-on-builds]] — only
+the investigation phase used agents.
+
+**Real bugs found and fixed (verified via tsc/eslint/`next build` clean,
+plus live browser re-testing of the highest-impact ones):**
+- **Pipeline board went stale** (`kanban-board.tsx`) — local state was
+  seeded once from props and never resynced, so `router.refresh()` after a
+  move (or any change made elsewhere - a teammate moving a card, a new lead
+  arriving) was silently ignored until a hard reload. Fixed using React's
+  render-time state-adjustment pattern (not a `useEffect`, which this
+  project's own lint rule flags for this exact case, same class of issue as
+  the `event-dialog.tsx` reset bug from Round 5). Verified live: dragged a
+  second lead, no regression.
+- **Calendar `updateEvent`** ran 3 sequential un-transactioned DB calls
+  (delete attendees, delete leads, update) — a mid-failure could wipe an
+  event's attendees/leads with the update never applied. Wrapped in
+  `db.$transaction`.
+- **Calendar event delete had no confirmation** (destructive, one misclick)
+  — added, matching the pattern Map's route-line delete already used.
+  Calendar save also had a silent-failure gap — added try/catch+toast.
+- **Map's "Enregistrer" button could get stuck forever** on a save error (no
+  try/catch, so `setSaving(false)` never ran on failure) — fixed with
+  try/catch/finally. Delete-line also silently swallowed permission errors —
+  fixed.
+- **Map page over-fetched** every contact column just to render pins that
+  need 5 fields — added a `select`.
+- **Discussion's `listMessages` was unbounded** and polled every 5 seconds
+  forever — a real, compounding cost as history grows. Capped at the most
+  recent 200. Also fixed an N+1 write (`sendMessage` looped `await` per
+  tagged contact instead of `createMany`), and added missing try/catch to
+  three action handlers (`openDm`, `handleCreateGroup`, `handleSend`) that
+  were silently swallowing failures.
+- **Conversations page fetched every contact's full activity history**
+  (no cap) on every load — capped at 100/contact. Also fixed a missing
+  try/catch on the CALL/NOTE compose branch (every other channel already had
+  one).
+- **Contacts: silent save failures** — `contact-detail-form.tsx` and both
+  quote/contract generation dialogs (`document-generator.tsx`) had no
+  try/catch, so a failed save or PDF generation looked like nothing
+  happened, no toast, no error. Fixed all three.
+- **Settings: broken auto-reply toggle for non-owners** — the card rendered
+  for everyone but the underlying action is OWNER-only server-side; a
+  non-owner's click flipped the checkbox UI immediately with no `await`/
+  `.catch()`, so it silently failed and looked broken until next reload.
+  Fixed: disabled for non-owners (with an explanatory `title`, matching how
+  `TeamInvites` handles the same class of gap), and the actual owner path
+  now awaits + reverts + toasts on a real failure. Verified live: toggled
+  on/off as owner, both calls succeeded cleanly.
+- **Team role labels were inconsistent across 3 places** — `lib/roles.ts`'s
+  `ROLE_LABEL` ("Vente / Porte-à-porte") vs. hardcoded duplicates in the
+  sidebar and the invite dialog ("Vente") giving different French wording
+  for the same role depending on which screen you're on. Unified to the one
+  source of truth.
+- **Security hardening:** `Content-Disposition` filename headers on both
+  document-download routes interpolated a contact's editable name directly
+  - a name containing a `"` or newline could produce a malformed header and
+  crash the download. Added a shared `sanitizeHeaderFilename` helper.
+- **My own bug from Round 11, caught in this pass:** the new help chat
+  widget's `bottom-4 right-4` position visually collided with Discussion's
+  (and potentially Conversations') message-composer send button, confirmed
+  via real DOM rect overlap - bumped to `bottom-20` so it clears any
+  page-level bottom-right control. Also added missing `aria-label`s to the
+  widget's own close/send buttons (an agent caught this reviewing my own
+  code).
+- Minor accessibility: digest's prev/next day buttons and training's delete
+  button had no accessible label - both fixed. Training delete also had no
+  confirmation - added. Removed one piece of genuinely dead code (a
+  redundant `sr-only` initials span in `contact-card.tsx`).
+
+**Flagged but deliberately NOT changed - product/security policy
+decisions, not bugs to silently fix:**
+- `deleteDocument` (documents.tsx) and both training-resource actions
+  (training.ts) have **no auth/role check at all** - any logged-in user,
+  any role, can delete any document or any other person's training
+  material. May be intentional ("anyone can curate/manage"), may not be -
+  worth a deliberate decision from Emile, not something to silently
+  restrict.
+- Calendar's `Event.allDay` schema field exists but the create/edit form
+  always hardcodes `false` with no UI control - a dead, unreachable field.
+  Left as-is pending a decision on whether all-day events are wanted.
+- Contacts: quote numbering is one global sequential counter with no
+  reservation - a real but very-low-probability race if two people generate
+  a quote at the exact same moment. Noted, not fixed (low severity, small
+  team).
+
+**Not yet browser-verified individually:** the Calendar delete-confirmation
+and silent-failure fixes (no events existed in the current date range to
+test against without creating throwaway data) - verified via clean
+tsc/eslint/build and by the identical pattern already proven working
+elsewhere (Map's line-delete confirm), but not clicked through live like
+the pipeline/settings/discussion fixes were.
+
+Verified end-to-end via a **fresh, never-before-opened browser tab**
+(important - the long-lived dev tab's console had accumulated stale errors
+from earlier in the session, including from mid-edit HMR churn, that looked
+alarming out of context but weren't live bugs): all 12 top-level pages
+return clean 200s, zero console errors on a cold load. `tsc`/`eslint`/
+`next build` clean on the full tree throughout.
+
+## Round 14 — daily-snapshot caching for Digest/Reporting (built + verified 2026-08-31)
+
+Emile reported the Round 12 perf fix wasn't enough in practice: even at
+1.4-2.3s per load, /digest and /reporting recomputing from scratch on every
+single page open still felt slow/wasteful to him. **Requested design change,
+his explicit spec:** stop recomputing on every page load entirely. Instead,
+generate the digest/report **once per day at a fixed cutoff time (he
+suggested 6 PM)** and serve that same static snapshot to everyone, all day,
+regardless of how many times the page is opened or by whom — a genuinely
+shared team artifact, not a per-request or per-user computation. Next
+calendar day's snapshot only regenerates after the next 6 PM cutoff. His own
+words: "I don't care how it works, I just want one every single day and it
+works fine" — implementation approach is delegated, the requirement is the
+fixed daily-artifact behavior. Applies to both /digest and /reporting.
+
+**Built and verified same day.** New `DailySnapshot` Prisma model (kind +
+YYYY-MM-DD business date + JSON payload, unique on both), a dependency-free
+`src/lib/business-day.ts` computing the "effective business day" from real
+Eastern time via built-in `Intl` (before 6PM = still yesterday's business
+day, at/after 6PM = today's — no new npm package needed for this). Both
+pages now call a `getDailyDigest()`/`getReportingSnapshot()` wrapper:
+read the cache row for the resolved date, else compute + store + return.
+Past digest days (existing `?date=` browsing) are cached forever on first
+view since they're closed and immutable. Also added, per Emile's own
+follow-up choice when asked: an owner-only "Régénérer" button on both pages
+(mirrors the existing ads "Sync now" pattern) that clears just the current
+day's cache row as a manual escape hatch.
+
+Schema applied via `prisma db push` (not `migrate dev`, which wanted a
+full destructive reset over pre-existing unrelated drift — same recurring
+situation as Round 6's Meta schema change). Verified for real against the
+running dev server, not just typechecked: confirmed actual `DailySnapshot`
+rows appear in the real SQLite file after a cache-miss load, a second load
+of the same page is a fast cache-hit (~100ms vs. 2-4s cold) with zero new
+GA4/Gemini calls fired, past-date digest browsing (`?date=2026-08-20`)
+renders correctly and caches independently, the "Régénérer" button actually
+clears the row and forces a fresh compute on next load (confirmed via
+`createdAt` changing), and — logged in as a temporary SALES-role test
+user — the button is correctly hidden for non-owners. `tsc`/`eslint`/
+`next build` all clean.
+
+**One real gotcha hit again this round, consistent with the Round 4 note:**
+the dev server needs a full restart after `prisma generate` picks up a new
+model, or the old cached Prisma client throws `Cannot read properties of
+undefined (reading 'findUnique')` on the new table.
+
+**Known limitation, told to Emile directly:** since no cron/scheduler infra
+exists yet (the app is still local-only), the very first person to open
+either page after a day's 6PM cutoff still pays the original cold-compute
+cost (~2-4s) — everyone after them gets the instant cached version. A
+scheduled pre-warm job would remove even that, but needs real hosting
+(Netlify/Vercel) with a scheduler first, which hasn't happened yet.
+
+## Round 15 — ad comparison + real per-post social analytics (built + verified 2026-08-31)
+
+Emile asked two related questions: whether the CRM could help analyze social
+posts to get more views/likes, and whether two ad campaigns can be compared
+side by side. Explored first (no per-post Meta data exists today - only
+Page-level aggregate engagement; ad campaign data already exists per-day
+per-campaign but has never been surfaced as a comparison view).
+
+**Confirmed decisions (AskUserQuestion, 2026-08-31):**
+- **Post analytics: real per-post data, not just aggregate.** Emile chose
+  to pursue actual per-post Instagram/Facebook metrics (likes/reach per
+  post) over a simpler v1 built on existing aggregate data, explicitly
+  accepting that Instagram per-post insights need a new Meta permission
+  (`instagram_manage_insights`) and likely weeks of Meta App Review - the
+  same kind of wait as the still-blocked Instagram DM messaging feature
+  from Round 6. Facebook Page post-level insights likely already work with
+  the currently-granted `pages_read_engagement`, so that half can be built
+  and verified now while Instagram-specific per-post data waits on the new
+  permission/review, same graceful-degradation pattern as other
+  pending-Meta-review features.
+- **Ad comparison: pick any 2 campaigns, side by side** (not an extension
+  of the existing flat "Détail par campagne" table) - dropdowns to select
+  two specific campaigns, their key metrics and trend lines shown next to
+  each other over a selectable date range. All underlying data
+  (`computeCampaignPerformance()` in `src/lib/ads-metrics.ts`, daily
+  `AdSpendDaily` rows per campaign) already exists; this is purely a new UI
+  surface, no new data plumbing needed for the Meta/Google campaign side.
+
+**Built and verified same day.**
+
+**Feature A (ad comparison):** new `computeCampaignSeries()` in
+`src/lib/ads-metrics.ts` (per-campaign day-by-day series, alongside the
+existing all-time `computeCampaignPerformance()`), baked into the existing
+`/reporting` daily-snapshot cache (`meta.campaignSeries`, no new Prisma
+model). New "Comparaison" tab: two campaign-picker dropdowns + a 7/30/90-day
+range selector, side-by-side stat tiles and a dual-line Recharts trend
+chart, fully client-side (no server round-trip per pick). Verified live
+with a temporary second test campaign (inserted and cleaned up via direct
+SQL) since only 1 real campaign exists in the live data right now: numbers
+matched the existing "Détail par campagne" table exactly, chart rendered
+correctly, guard state ("Choisis deux campagnes à comparer") worked.
+
+**Feature B (social post analytics) - real, important finding from live
+testing, not just planned behavior:** built `src/lib/meta-posts.ts` (lists
+Facebook Page posts + Instagram media, attempts per-post insights for
+both), `SocialPost` Prisma model, `/social` page (new nav entry "Réseaux
+sociaux"), Gemini-powered recommendations reusing the existing AI plumbing,
+and a new Settings card. Ran the real "Synchroniser maintenant" sync against
+Emile's actual connected Meta account (not mocked): **post LISTING works
+for both platforms already** (1 Facebook post, 18 Instagram posts pulled
+in for real), but **the actual metrics (likes/comments/reach/etc.) are
+blocked for BOTH platforms right now, not just Instagram as originally
+assumed during planning.** Facebook's per-post numbers need Meta's "Page
+Public Content Access" feature (a separate Advanced Access grant, not
+covered by the already-checked `pages_read_engagement` permission) -
+confirmed via the real API error: "(#10) This endpoint requires the
+'pages_read_engagement' permission or the 'Page Public Content Access'
+feature." Instagram needs `instagram_manage_insights` as expected. Fixed
+the code to detect this correctly (post listing succeeding does NOT mean
+metrics are available - checks per-item insight-call failures, not just
+the top-level list call) and to stop the AI recommendations from drawing
+conclusions off fake all-zero data (caught a real early output where
+Gemini said "posting late doesn't work" based on zeros that were actually
+just blocked-metric placeholders, not real engagement - added an explicit
+check that returns an honest "Meta hasn't given us real numbers yet"
+message instead whenever every post's metrics are 0). Settings card
+updated to give Emile accurate two-track setup steps (Page Public Content
+Access via App Review for Facebook, `instagram_manage_insights` for
+Instagram), both realistically multi-week waits.
+
+**Also fixed a real house-style bug on my own part:** wrote an em dash into
+one of the new fallback/toast strings despite knowing [[feedback/no-em-dashes]]
+- caught it during verification (visible in the live rendered page) and
+fixed all instances across the new files before calling this done. Worth
+remembering: even code that isn't "writing to Emile" directly (UI copy,
+toast messages) is still user-facing text and subject to the same rule -
+only internal code comments are exempt.
+
+`tsc`/`eslint`/`next build` all clean throughout. Both features verified
+against the real running dev server and Emile's real connected Meta
+account, not just typechecked.
+
+## Round 16 — AI trustworthiness pass across the app (built + verified 2026-08-31)
+
+Emile raised a general worry, not tied to one feature: he doesn't know if
+the AI suggestions across the CRM (starting with the daily digest) are
+actually good advice or "just another AI slot," and doesn't want to act on
+something that could downgrade the business. Asked whether the fix is
+feeding the AI more context about how ads/the website work.
+
+**Audited every real Gemini call site first** (not guessed): found
+`src/lib/digest-trends.ts`'s `phraseSignals()` was already the gold
+standard in this codebase - explicit "never invent or change the given
+numbers" instruction, a real week-over-week baseline
+(`leadVolumeSignal`), and a deterministic non-AI fallback always
+available. `src/lib/social-recommendations.ts` (built the round before)
+was the one place doing real business analysis without that same rigor -
+no anti-invention wording, no baseline to compare against, no requirement
+to cite which specific post backs a claim. `help-chat.ts` (navigation
+help, not business analysis) and `ai-draft.ts` (generative drafting Emile
+reviews before sending) were confirmed fine as-is, different risk
+profiles. Confirmed via grep: **no industry-benchmark data exists
+anywhere in the codebase** - decided against fabricating external
+"industry-typical CTR/CPL" numbers (that would itself be a hallucination
+risk) in favor of the same real internal-baseline pattern
+`leadVolumeSignal` already proved: compare the business against its own
+recent history, not an invented outside reference point. Emile confirmed
+via AskUserQuestion: stay on the free `gemini-3.5-flash-lite` model for
+now, this prompt/data work is the real lever - revisit the model only if
+output still feels weak after this fix.
+
+**Built:** `src/lib/social.ts` now computes a 30-day-vs-prior-30-day
+engagement baseline (same two-window shape as `leadVolumeSignal`) and
+passes it into `generateContentRecommendations`.
+`social-recommendations.ts`'s `SYSTEM_PROMPT` now carries the exact
+"sans jamais inventer ou changer les chiffres donnés" wording copied
+verbatim from `phraseSignals()`, plus a new requirement to cite the exact
+publication date behind every recommendation.
+
+**Real bug caught and fixed during verification, not just assumed
+working:** the per-post prompt lines only included day-of-week + hour, not
+the actual calendar date, so the model cited things like "la vidéo du
+samedi" (which day-of-week, no way to trace back to a real row) instead of
+a real date matching what the `/social` post table actually displays.
+Verified end-to-end with a standalone `tsx` script (synthetic in-memory
+post data, since Meta's real per-post metrics are still all zero/blocked
+- confirmed this correctly falls back to the honest "no real numbers yet"
+message rather than running the AI on fake zeros) run twice: before the
+date fix the output cited "la vidéo du samedi à 21h" (untraceable); after
+adding the real date to the prompt data, the output cited
+"ta publication du 2026-08-29" and "celle du 2026-07-22" - both real,
+traceable, and numerically accurate (56 vs 11 engagement, matching the
+synthetic input exactly). `tsc`/`eslint`/`next build` clean, `/digest`
+confirmed unaffected (no changes made there, it was already correct).
+
+## Round 17 — minimum-sample guard + real business context for AI (built + verified 2026-09-01)
+
+Emile asked to keep going on AI trustworthiness: wanted a minimum-sample
+guard for social recommendations (agreed to from the options presented),
+and separately asked to "give it basically everything about our
+business" so recommendations don't sound smart but be operationally wrong
+(e.g. suggesting winter outdoor work). Confirmed his framing wasn't a
+literal data dump - narrowed to durable operational facts before writing
+anything, since baking stale/wrong facts into an AI prompt would be the
+exact failure mode this whole effort is trying to prevent.
+
+**Confirmed/corrected directly with Emile before writing code (not
+assumed from memory alone):** the "2-person operation" framing needed
+softening - sales reps and a cleaning crew are planned for the 2027
+season, not yet real, so phrased as current-state-with-a-caveat rather
+than a fixed fact. Real lead channels right now, confirmed directly:
+**Meta ads, the website form, door-to-door, and some word of mouth -
+explicitly NOT Google Ads** (that campaign exists in the CRM's
+code/schema but was deliberately never launched for 2026, per
+[[duo-vert/google-ads-campaign]]) - a fact the AI could easily have
+gotten backwards from the schema alone without this correction.
+
+**Built:** new `src/lib/business-context.ts` - a single exported
+`DUO_VERT_CONTEXT` constant (one dense French paragraph: services,
+how the work is done, season, pricing model, service area, real lead
+channels) as the single source of truth, prepended into both
+`digest-trends.ts`'s `phraseSignals()` prompt and
+`social-recommendations.ts`'s `SYSTEM_PROMPT` - not duplicated per file.
+`ai-draft.ts`/`help-chat.ts` stayed out of scope again, same reasoning as
+Round 16. Added `SOCIAL_MIN_SAMPLE = 3` to `social-recommendations.ts`
+(matches `digest-trends.ts`'s `LEAD_VOLUME_MIN_SAMPLE` naming/threshold
+convention) - below 3 metric-bearing posts, returns an honest
+"pas assez de publications pour dégager une vraie tendance" message
+instead of calling Gemini.
+
+**Verified via the same standalone `tsx`-script approach as Round 16**
+(synthetic in-memory data, since Meta's real per-post metrics are still
+blocked): confirmed the min-sample guard fires correctly at 2 posts, and
+with 3 posts the AI output visibly used the business context - it named
+Emile and Beckett's actual pressure-washing equipment unprompted and
+recommended more on-the-job video content, not generic social media
+advice. Live-verified on the real running app too: `/digest`'s lead-drop
+recommendation now says to push door-to-door/Meta specifically (the real
+channels), not a generic "increase marketing" line; `/social` still
+correctly shows the honest zero-metrics fallback since real Facebook/
+Instagram numbers are still pending Meta approval, unaffected by this
+round's changes. `tsc`/`eslint`/`next build` clean throughout, and the
+em-dash check happened proactively this round (checked all new prompt
+text before running any tool, per the Round 16 lesson) instead of being
+caught after the fact.
+
+**Round 18 (2026-09-01)** - "seen/read" tracking across all three outbound
+channels, prompted by an open-ended "find something useful in the CRM"
+ask that Emile then expanded to cover documents, email, and SMS with real
+timestamps, not just a seen flag:
+- **Documents (quote + contract):** `Document.viewedAt` (first-view only,
+  same nullable-timestamp pattern as `quoteSentAt`), tracked in the public
+  PDF-byte route (`api/public-documents/[token]`, not the page route -
+  keeps link-preview crawlers from producing false positives by
+  construction), logs a `DOCUMENT_VIEWED` Activity. Fixed a real trap:
+  `staleLeadsSignal` was treating any activity (including this new passive
+  one) as "not stale," which would have silently hidden a gone-quiet lead
+  right when it should surface. Added a sibling digest signal,
+  `quoteViewedNoFollowUpSignal` (2-day threshold vs. the 5-day generic
+  one), rendered as its own "hot leads" block above the generic stale-lead
+  list.
+- **Email:** Gmail sends were text-only until now - switched to
+  multipart (text + HTML) so a tracking pixel has somewhere to live.
+  New `Activity.readAt`, set via a public pixel route
+  (`api/track/email/[token]`) keyed by the Activity's own id (created
+  before send, rolled back if the send fails). Documented the real,
+  known caveat: pixel tracking can log false-early reads if the email
+  client proxies images - same industry-standard tradeoff every CRM in
+  this space makes, not hidden from Emile.
+- **SMS:** genuinely blocked on two things outside the code (Sent unfunded,
+  no public hosted URL for a webhook), so built the receiver
+  (`api/webhooks/sent`) and signature verification (real HMAC-SHA256
+  scheme, fetched and confirmed directly from docs.sent.dm rather than
+  guessed) code-ready but inert until both blockers clear.
+- Schema pushed via `prisma db push` (not `migrate dev`, which wanted to
+  reset the whole dev database over unrelated drift already present -
+  refused, used the non-destructive path instead).
+- Verified for real: `tsc --noEmit` and `next build` both clean. Live
+  runtime check via a one-off standalone script (bypassing another
+  session's dev server, which held a stale pre-regeneration Prisma client
+  in memory - a real, self-resolving artifact of two sessions sharing one
+  process, not a bug) confirmed against the real dev database: view/read
+  tracking fires once and no-ops on repeats, bot user-agents are filtered,
+  a tampered webhook signature is correctly rejected, a valid one is
+  correctly accepted. All test data reverted after - the real Duo Vert
+  document/contact rows touched during verification were left exactly as
+  found.
+
+**Spending decision (2026-09-01):** Emile decided not to pay for or
+activate anything until it will actually be used live. Concretely for the
+CRM: proceed with the free Google Cloud OAuth app setup (needed for Gmail
+integration, no cost) and continue feature/optimization work, but do NOT
+fund the Sent account for SMS, and do NOT stand up any paid hosting tier
+(Turso) until ready to actually run it. Same logic applies to the AI phone
+receptionist idea from [[personal/agency-idea]] - fine to prototype/wire
+up structurally, not to pay for the parts that cost money (telephony/
+voice model usage) until it's actually going to be used. See
+[[feedback/no-paid-setup-before-ready-to-use]] for the general version of
+this rule.
+
+**Full monthly operating cost estimated (2026-09-01), consolidated from
+scattered figures into one total; corrected same day after Emile pushed
+on whether hosting could be genuinely free:** core hosting -
+Netlify (app, free) + Turso (database) + Cloudflare R2 (document
+storage) = **$0/month realistically, likely indefinitely** at Duo Vert's
+actual 2-3 person scale - Turso's $4.99/mo and R2's paid tier are ceilings
+that only kick in if the business outgrows their free tiers, not an
+expected cost. **Real free-tier limits, checked directly (2026-09-01):**
+Turso - 500 million row reads/month, 10 million row writes/month, 5GB
+storage; Cloudflare R2 - 10GB storage, 1 million writes/month, 10 million
+reads/month, $0 egress fees always. Translated to real usage: Duo Vert's
+CRM traffic is thousands of reads/day at most (nowhere near 500M/month),
+and quote/contract PDFs (50-500KB each, a few dozen/month) would take
+tens of thousands of documents to fill 10GB. Realistic conclusion: paid
+tier isn't a near-term concern at all, not this year or likely ever
+unless the business grows into real daily-active-user counts in the
+dozens-to-hundreds range. Considered and rejected: self-hosting on a traditional VPS
+to avoid these entirely - not actually free (~$5-6/mo server rental) and
+adds real maintenance burden (security updates, backups, uptime) the
+managed free tiers currently avoid - not a good trade. **Gemini** (AI
+drafting/digest) also runs on a free API key, same "unlikely to become a
+real cost at this volume" logic. **Confirmed with Emile: the only two
+things that cost real money are SMS (Twilio) and the AI phone
+assistant**, because those are the two pieces paying for actual outside
+infrastructure (carrier networks, per-minute voice processing) rather
+than just running the app. On top of the
+near-$0 hosting, if/when turned on: SMS/texting (Twilio, ~$6-8/mo) + AI
+phone assistant (Vapi, ~$10-40/mo, see [[personal/agency-idea]] for the
+full build-out). **Grand total for genuinely everything: ~$16-48/month,
+most realistically ~$20-30/month** - almost entirely the messaging/
+calling layer, not the app/hosting itself.

@@ -48,6 +48,21 @@ This is the concrete, always-do list mined from a full-site audit and cleanup pa
 - **Build and deploy: for a Vite (or similar) static-build stack, always run the actual build command and deploy the build output folder (`dist/`), never the raw source repo.** Dragging the whole source folder (node_modules, src, config files) onto a host is both wasteful and unreliable — path mapping that a build step performs (like Vite's `public/` folder overlay) isn't guaranteed without it. Also: when deploying manually to a host like Netlify, double- and triple-check which site/project you're dropping the folder onto — a wrong-folder-onto-wrong-site mistake caused a real production outage on duovert.ca (traced in [[duo-vert/website-build-overview]]). If a project sits in the same parent directory as other small unrelated deploy targets, that's a standing risk worth actively avoiding (separate directories, clearly named).
 - **Before considering a multi-page change "done," run a verification pass that checks the specific things fixed, not just spot-checks.** E.g. after fixing a grammar bug across 11 files, grep for the old (wrong) string across the whole site to confirm zero remaining instances, not just re-check the files remembered. This caught a real regression once (a revert-and-reapply operation on 3 files silently reintroduced an already-fixed unrelated bug in the shared nav).
 
+**Discovery-call framing, added 2026-09-01 (from the soccer coach project,
+first real outside client):** Emile's own useful distinction for reading a
+client during discovery - they'll fall into one of two modes, and the
+right approach differs:
+1. **Precise-vision client** - has a specific look/feel in mind. The job
+   is extracting it accurately (reference sites, exact style words,
+   specific must-have pages/features) rather than substituting his own
+   taste.
+2. **Vague-idea client** - has a rough sense of what they want but no
+   concrete vision. Here Emile's own creative judgment should drive the
+   actual design decisions, using the discovery answers as constraints
+   (audience, goal, business specifics) rather than a spec.
+Worth identifying which mode a client is in early in the call, since it
+changes how much design latitude to take.
+
 ## Open / not-yet-solved
 
 - Floating call-button-over-text overlap on mobile scroll (Duo Vert) — identified, not fixed as of 2026-08-05, worth solving properly (once) and then treating the fix as a default for future sites too.

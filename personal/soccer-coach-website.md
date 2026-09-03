@@ -30,5 +30,12 @@ the coach as a possible CRM client too, not just a website one ("maybe he pays f
 maybe he doesn't"). Not discussed with the coach, not scoped — just a possibility to keep
 in mind for the eventual discovery call.
 
+**Discovery call outreach sent (2026-09-01):** Emile texted the coach to set up
+the discovery call. Prep is fully done - discovery-call-questions.txt drafted
+(`Documents/AI Agency/Clients/Soccer Coach - Personal Training/`), pricing
+tiers/payment method/hosting architecture all decided (see
+[[personal/agency-idea]]). Next action: wait for his reply and hold the call
+- no further prep needed.
+
 See also: [[personal-website-build-playbook]], [[duo-vert/season-2027-plan]],
 [[personal/agency-idea]]

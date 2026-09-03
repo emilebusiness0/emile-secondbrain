@@ -3,7 +3,7 @@ name: personal-dev-environment
 description: What's installed and authenticated on Emile's Mac for Claude Code to use directly, so future sessions don't assume tools are missing
 metadata:
   type: user
-  modified: 2026-08-17
+  modified: 2026-09-02
 ---
 
 **Homebrew**: installed 2026-08-01 (`/opt/homebrew/bin/brew`). Not yet on PATH in already-open Terminal windows/sessions — new windows pick it up automatically via `.zprofile`; from inside a Claude Code session, call it by full path (`/opt/homebrew/bin/brew`, `/opt/homebrew/bin/gh`) rather than assuming `brew`/`gh` resolve on PATH.
@@ -32,4 +32,63 @@ metadata:
 
 **Prisma's AI-safety gate and Claude Code's auto-mode classifier are two independent blocks (2026-08-29):** running a destructive-looking Prisma command (`db push --accept-data-loss` on a real dev database with actual schema drift) got blocked twice in a row for different reasons — first by Prisma itself (its CLI detects an AI agent and refuses without a `PRISMA_USER_CONSENT_FOR_DANGEROUS_AI_ACTION` env var carrying Emile's literal consent text), then again by Claude Code's own auto-mode permission classifier even after that env var was supplied correctly. Satisfying Prisma's own gate does not satisfy the harness's separate one — getting past both needed Emile to explicitly switch the session out of auto mode. Worth remembering if a similarly "dangerous" CLI command (migrations, resets, force-pushes) gets blocked again: check whether it's Prisma-level, harness-level, or both, rather than assuming one fix covers it. Full incident: [[duo-vert/custom-crm-prototype]] Round 6.
 
-See also: [[duo-vert/memory-architecture]], [[feedback/rename-move-verification-checklist]], [[duo-vert/website-build-overview]]
+**No ffmpeg/exiftool installed, and Read tool can't open video files directly (found 2026-09-01):** when asked to review `.MOV` files (Beckett's job-site videos for GBP post drafting), the Read tool errored with "cannot read binary files" on a `.mov`, and `ffmpeg`/`ffprobe`/`exiftool` were all absent from PATH. There is no way to inspect video content (extract a frame, read metadata) until one of these is installed via Homebrew — install is a real system action, so in plan mode it needs explicit approval first, it can't just happen as part of research.
+
+**Playwright MCP has live, authenticated access to Duo Vert's actual Google Business Profile (confirmed 2026-09-01):** navigating to `business.google.com/posts` (or really any Google search for "Duo Vert" while signed into the `duovert` account) lands on the Google/Maps "Business Profile on Search" panel, already authenticated as `duo.vert.gatineau@gmail.com` with "You manage this Business Profile" showing. This is the actual live GBP management surface — Posts, Photos, Reviews, Edit profile are all directly clickable and functional through Playwright, no separate business.google.com login needed. The "Add post" composer (via the "Posts" button or "Add update") has a native **"Schedule this post"** toggle with Date and Time fields, meaning posts can be scheduled for a real future date/time in one session rather than needing to return and post manually on the day. Date field format is MM/DD/YYYY regardless of the `hl=en-GB` in the URL; always confirm via the "Open calendar" picker (it shows the resolved day/month/year and marks the selected date) rather than trusting the typed text field, since a misread date would publish content on the wrong day on a live public listing. This capability was used to schedule a pilot batch, extended to 20 GBP posts for Duo Vert (all confirmed "Scheduled," none rejected). **Video posts show a transient "Pending" status right after upload** (vs. "Scheduled [date]" for photos) — this resolved to "Scheduled" within a couple minutes in both cases tested, so it's normal processing, not a rejection signal. Don't mistake "Pending" on a freshly-uploaded video for a problem; just re-check the posts list a little later.
+
+**Claude plan: currently Pro, expects to need Max soon (2026-09-01).**
+Emile asked directly whether his growing agency work (multiple client
+sites/CRMs, heavy daily Claude Code use, see [[personal/agency-idea]])
+will require upgrading from Pro. Real numbers checked: Pro gives ~10-45
+Claude Code prompts per 5-hour window; Max 5x ($100/mo) gives ~225/window,
+Max 20x ($200/mo) gives ~900/window - all plans share a weekly cap across
+Claude Code, chat, and sessions like this one. Assessed as likely needed
+soon, not hypothetical - a single feature-build session (schema changes,
+multiple files, live verification, research passes, like Round 18 in
+[[duo-vert/custom-crm-prototype]]) is exactly the kind of multi-file
+agentic work that burns through Pro's limit fast, and this will compound
+once he's juggling multiple client projects at once. Recommended
+upgrading reactively (once actually hitting rate limits regularly,
+expected within a month or two given his stated plans) rather than
+preemptively - same "don't pay before you need it" logic already applied
+elsewhere (see [[feedback/no-paid-setup-before-ready-to-use]]). Emile
+explicitly said he doesn't mind the cost given what Claude has already
+made him.
+
+**Correction, same conversation:** Emile clarified he's currently
+self-rationing to Sonnet 5 on medium effort specifically to conserve his
+Pro limits, and rarely hits his 5-hour cap, never hit the weekly one.
+This changes the calculus from the note above - he's not currently
+bottlenecked, so upgrading now wouldn't remove a blocker, it would buy
+two different things: defaulting to Opus instead of self-rationing to
+Sonnet, and running multiple sessions in parallel. Framed to him as a
+preference decision (worth $200/mo now for better models/parallelism) vs.
+a necessity decision (upgrade once actually rate-limited) - he hasn't
+picked one yet, but confirmed being fine with the cost either way.
+
+**Clarified tier confusion, same conversation:** Emile thought there was
+a big gap between Pro (~$24 CAD/mo) and "Max" at a single $140 CAD/mo
+price, with no middle option. Resolved: Max is two separate tiers, not
+one - Max 5x (~$140 CAD/mo ≈ $100 USD, 5x Pro's usage) and Max 20x
+(~$270-280 CAD/mo ≈ $200 USD, 20x usage). The $140 figure he'd seen was
+already Max 5x, not a single monolithic "Max" plan. Given he estimated
+needing roughly 2-3x his current usage, **Max 5x is a good match** - not
+overkill the way Max 20x would be. No actual gap in the plan lineup for
+his stated need, he just hadn't realized Max splits into two tiers.
+
+**Team plan checked and ruled out for now, same conversation:** Team
+Standard is $20-25/seat/mo but only 1.25x Pro's usage (not worth it).
+Team Premium is $100-125/seat/mo, 6.25x usage (comparable to Max 5x) -
+but Team plans require a **minimum of 2 seats**, so solo it would cost
+~$200-250/mo for roughly what Max 5x gives one person for ~$140 CAD/mo
+alone. Conclusion: **Max 5x remains the right call for his actual
+situation** (solo, agency work). The one scenario where Team could make
+sense - splitting a Premium plan with Beckett - is only worth pursuing if
+Beckett would genuinely use Claude Code himself; flagged as something to
+actually ask him rather than assume, since Beckett's role has been more
+social/sales than technical build work (see
+[[duo-vert/season-2027-plan]]).
+
+**LibreOffice installed 2026-09-02, and Office-file tooling gaps found on this Mac:** while building a Word deliverable for a Cégep assignment (see [[cegep-school-organization]]), discovered this Mac had none of the tools the docx/pptx skills assume: no `markitdown`, no `pandoc`, no `python-docx`/`python-pptx`, and no LibreOffice (`soffice`) at all — so reading/converting/rendering Office files needed workarounds (parsing docx/pptx XML directly with Python's stdlib for reading) until `brew install --cask libreoffice` was run to get `soffice`/`pdftoppm`-based visual QA working. Also: the `docx` and `pptxgenjs` npm packages are **not** preinstalled here either, despite the skill docs saying so — needed `npm install docx` in the scratch working directory before `require('docx')` worked. Separately, system Python on this Mac is 3.9.6 (`/usr/bin/python3`), which is too old for the docx skill's `scripts/office/validate.py` (uses `match` statements, needs 3.10+) and for `soffice.py`'s `ignore_cleanup_errors` tempfile arg (also 3.10+) — the skill's own `soffice.py` wrapper actually fails on this machine's Python for that reason, so call `soffice` directly instead of through that wrapper. **How to apply:** the first time a session needs to create/edit/preview a Word or PowerPoint file, expect to install LibreOffice and `npm install docx`/`pptxgenjs` up front rather than assuming they're there; skip the skill's `validate.py`/`soffice.py` wrapper scripts and call `soffice`/`pdftoppm` directly for visual QA.
+
+See also: [[duo-vert/memory-architecture]], [[feedback/rename-move-verification-checklist]], [[duo-vert/website-build-overview]], [[feedback/gbp-post-content-style]], [[personal/agency-idea]], [[cegep-school-organization]]

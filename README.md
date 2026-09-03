@@ -17,6 +17,8 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[personal/cegep-school-organization]] — Emile's Cégep course list (Automne 2026) and the Documents/Cegep/<Course>/ file system
 - [[personal/soccer-coach-website]] — future freelance website for Emile's old soccer coach, blocked on Duo Vert season ending
 - [[personal/agency-idea]] — idea (2026-08-31, not decided) to sell website/CRM builds to other businesses using Claude Code, pricing/hosting/client-acquisition thinking
+- [[personal/stephane-referral-pipeline]] — warm B2B referral channel via Stephane (dad's contact); real estate client + 2 probable leads via his brother
+- [[personal/motivation-and-mission]] — Emile's core why: financial freedom for his mom's travel, age/timeline, personal turnaround
 - [[project-current-todo-list]] — active cross-project to-do list
 
 ## Duo Vert — business & ops
@@ -75,6 +77,12 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[feedback/no-inventing-when-citing-sources]] — when reporting from a source, state only what's literally written, say "not mentioned" instead of guessing
 - [[feedback/plain-text-over-markdown-for-documents]] — outside Obsidian: prose gets .txt, structured/row data gets a real .xlsx, never raw markdown
 - [[feedback/walkthrough-direct-steps]] — give numbered click-by-click steps for unfamiliar external UIs, don't ask "what do you see" first
+- [[feedback/proactive-opinions-and-next-steps]] — surface opinions/opportunities unprompted; pair open questions with a concrete first action
+- [[feedback/no-paid-setup-before-ready-to-use]] — build free/structural parts now, defer paid activation until actually going live
+- [[feedback/do-it-yourself-dont-hand-off-steps]] — execute anything Claude is capable of directly, only hand off steps that need his own login/decision
+- [[feedback/preserve-wording-when-reformatting]] — reformat/redesign tasks must keep every original word; verify with a word-diff, not a visual read
+- [[feedback/academic-integrity-boundary]] — clean Office file metadata by default; see write-human-not-ai-sounding for the corrected framing
+- [[feedback/write-human-not-ai-sounding]] — standing default for all writing: sound human, avoid AI "tells" — skill-building, not academic dishonesty
 
 ---
 

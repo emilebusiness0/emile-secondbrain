@@ -3,7 +3,7 @@ name: mac-file-organization
 description: Ongoing project to organize/clean up files on Emile's new Mac (got it ~2026-07-30)
 metadata:
   type: project
-  modified: 2026-08-18
+  modified: 2026-09-03
 ---
 
 Emile asked (2026-08-15) for help organizing and clearing out files on his Mac — got the computer about 2 weeks prior (see [[personal/about-emile]]), and a lot of one-time-use files have accumulated with no system in place yet.
@@ -37,4 +37,22 @@ The Cégep schedule image (`Admin/Cegep/Cegep Automne 2026.png`) moved out of th
 
 **How to apply going forward:** when checking for duplicate/stray apps, check `~/Desktop/` in addition to `~/Documents/` and the home root — Desktop keeps independently accumulating full app duplicates (likely from how installers/downloads get opened — e.g. running an installer.pkg directly from Downloads seems to drop a full extracted copy on Desktop in addition to installing properly to `/Applications`). If a Dock icon breaks or points somewhere unexpected right after a file cleanup, check whether the cleanup moved the specific copy that icon was bookmarked to — the fix is having Emile remove and re-drag the icon from `/Applications`, not editing the Dock plist directly (safer, avoids risk of corrupting his Dock layout).
 
-See also: [[personal/about-emile]], [[personal/cegep-school-organization]], [[feedback/proactive-file-organization]]
+**New top-level domain added 2026-09-01 — `Documents/AI Agency/`.** Created
+as a sibling to `Duo Vert/` and `Cegep/` for freelance/agency client work
+tied to [[personal/agency-idea]], separate from the paving business.
+Structure: `AI Agency/Clients/<Client Name>/` per client, same
+one-folder-per-domain pattern as the rest of Documents. First client
+folder: `AI Agency/Clients/Soccer Coach - Personal Training/` (see
+[[personal/soccer-coach-website]]), holding `discovery-call-questions.txt`
+as of this date. "AI Agency" is a placeholder name, not decided/final -
+rename later once he settles on an actual name.
+
+**Recurred a third time and re-trashed 2026-09-03:** `Claude.app` (824M), `Deezer.app` (484M), `Obsidian.app` (514M), plus three Microsoft 365 apps (`Excel` 2.5G, `PowerPoint` 2.2G, `Word` 2.7G) and `Microsoft 365 Copilot Shim.app` (7.3M) — 9.2GB total — had reappeared on Desktop, each confirmed as a duplicate of a working `/Applications` copy before trashing. Cause still not investigated; if this keeps recurring, worth checking what's dropping these (installer behavior, Spotlight/Migration Assistant, etc.) rather than just re-trashing each time.
+
+Also cleared during this pass: three loose Playwright/browser-automation debug `.yml` files from the home root (`composer21.yml`, `composer21b.yml`, `datecheck21.yml` — accessibility-tree page snapshots, not real documents) and a stray Desktop screenshot (deleted per Emile's choice — first time one of these recurring loose screenshots was actually resolved instead of left).
+
+**Downloads dump sorted 2026-09-03:** ~100 UUID-named `.MOV`/`.JPG` files (454MB, dated 2026-08-25 and 2026-08-29) turned out to be raw camera-roll exports of Duo Vert job-site footage — the Aug 29 batch was the unedited source material behind the already-curated, descriptively-renamed files in `Assets/Job-Photos-2026-08-29/`. Established pattern: raw/unsorted exports for a date that already has a curated folder go in a `raw-exports/` subfolder inside it (`Assets/Job-Photos-2026-08-29/raw-exports/`); a date with no curated folder yet gets a new sibling dated folder (`Assets/Job-Photos-2026-08-25/`, created fresh for 10 Aug-25 videos). Six of the Aug-29 `.MOV` files existed as byte-identical `NAME 2.MOV` duplicates (re-download artifacts) — deleted the `" 2"` copies, kept the originals. Also deduped `duovert-plan-2027 (1).html` (identical to `duovert-plan-2027.html`) and moved the survivor into `Duo Vert/Admin/` (matches the 2027 season plan, see [[project/duovert-season-2027-plan]]).
+
+Two Cégep files that had landed in Downloads got matched to existing course folders by content, not just filename — `Contenu_5_Les_principes_de_conception_graphique_et_exercices.pptx` and `Texte_brut_a_ameliorer.docx` (source draft behind the already-saved `Exercice_Texte_ameliore_4_principes.docx`) both went to `Cegep/Conception d'outils de communication/`; `Exercice_de_consolidation_OfficeEnLigne_V2.docx` went to `Cegep/Gestion numérique des organisations/` after opening it to confirm the course (filename alone said "Office en ligne," not which class). Confirms the [[personal/cegep-school-organization]] lesson that content, not filename, decides the course.
+
+See also: [[personal/about-emile]], [[personal/cegep-school-organization]], [[feedback/proactive-file-organization]], [[personal/agency-idea]]
