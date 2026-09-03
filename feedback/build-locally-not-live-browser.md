@@ -3,7 +3,7 @@ name: feedback-build-locally-not-live-browser
 description: Prefer generating files locally for the user to import/paste themselves over driving a live browser session to build things in Google Sheets/Apps Script/etc.
 metadata:
   type: feedback
-  modified: 2026-08-01
+  modified: 2026-08-20
 ---
 
 When building something that will live in an external web app (Google Sheets + Apps Script, a config file, etc.), prefer writing the deliverable to a local file and handing it to the user to import/paste themselves, rather than driving a live browser automation session to click through the UI.
@@ -24,4 +24,4 @@ Fifth incident (2026-08-20): tried typing new lead rows directly into the live P
 
 **Working alternative found the same day — CSV + "Append to current sheet" import:** read the target sheet's exact column headers via screenshot/zoom (read-only, no typing), built a headerless CSV matching that exact column order, handed it to Emile as a file, and had him do **File → Import → Upload → Import location: "Append to current sheet"**. This drops new rows in cleanly at the bottom of the currently-active tab without touching existing data validation/checkboxes on other rows, and needs zero live typing from either of us. This is now the **default method for adding rows to an existing live Sheet** (as opposed to full-file replacement, which is the default for building/editing a whole script or structure) — see [[duo-vert/sheets-tracking]] for the current Pré-soumission column layout this was built against.
 
-See also: [[duo-vert/sheets-tracking]], [[feedback/browser-verification-token-cost]], [[project/duovert-google-ads-campaign]], [[duo-vert/soumission-template]]
+See also: [[duo-vert/sheets-tracking]], [[feedback/browser-verification-token-cost]], [[duo-vert/google-ads-campaign]], [[duo-vert/soumission-template]]

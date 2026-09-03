@@ -3,7 +3,7 @@ name: ask-detailed-specs-before-building
 description: For structured deliverables and personal/professional content, ask what belongs in each section before drafting or entering it, don't fill things in unilaterally and present them after the fact
 metadata:
   type: feedback
-  modified: 2026-08-27
+  modified: 2026-08-29
 ---
 
 Ask what Emile wants in each section of a deliverable before writing or entering content, rather than drafting everything myself and presenting it as done. This applies to structured data (spreadsheet columns, form fields) and to personal/professional content (LinkedIn profile sections, bios, descriptions) alike.
@@ -25,11 +25,11 @@ email/SMS surfaced on the lead detail view, a performance-tracking section) — 
 the lesson isn't "ask fewer questions," it's "ask the *right* level of question": for a
 build with real product shape (screens, sections, what lives where), ask about the
 product shape itself, not just infra/scope-level decisions (where it runs, what data,
-which integrations in the abstract). See [[project/duovert-custom-crm-prototype]] for
+which integrations in the abstract). See [[duo-vert/custom-crm-prototype]] for
 the specific spec he gave.
 
-See also: [[project/duovert-website-build-overview]], [[personal/soccer-coach-website]],
-[[project/duovert-custom-crm-prototype]]
+See also: [[duo-vert/website-build-overview]], [[personal/soccer-coach-website]],
+[[duo-vert/custom-crm-prototype]]
 
 **Reinforced again 2026-08-29** during the CRM visual-polish/mobile round: unprompted,
 Emile said "I prefer replying to 20 questions now rather than fixing it five times

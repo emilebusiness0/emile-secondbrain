@@ -3,6 +3,7 @@ name: personal-agency-idea
 description: "Emile's idea (2026-08-31) to turn his Claude-Code website/CRM building skills into a paid service for other businesses"
 metadata:
   type: project
+  modified: 2026-08-31
 ---
 
 **Started 2026-08-31, still an idea, not a decision or a committed venture.**

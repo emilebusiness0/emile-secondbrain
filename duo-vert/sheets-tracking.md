@@ -3,7 +3,7 @@ name: duo-vert-sheets-tracking
 description: Emile's plan for Duo Vert's Google Sheets back office (leads+clients merged into one sheet, expenses separate) and the lead-tracking automation
 metadata:
   type: project
-  modified: 2026-08-18
+  modified: 2026-08-28
 ---
 
 Emile wants 3 Google Sheets (tabs, not website pages) to run [[duo-vert/company|Duo Vert]]'s back office:
@@ -129,7 +129,7 @@ for — adding 2 more users, especially ones entering data from a phone mid-door
 makes that structural mismatch worse, not better; (2) this reconnects directly to the
 root problem already identified below (personal-phone-number visibility gap) — that
 gap gets more painful with 2 more people texting/calling from their own numbers, and
-only a real shared-number platform (GHL, or the already-connected [[Sent]] messaging
+only a real shared-number platform (GHL, or the already-connected "Sent" messaging
 tool) fixes it, no amount of better spreadsheet design can; (3) a custom-built private
 web app is appealing for control but represents real ongoing engineering surface
 (mobile UX, auth, reliability in the field with real money on the line during the
@@ -180,8 +180,8 @@ template should contain, so May is fast configuration rather than fresh design.
 **Materials/equipment expense tracking — CONFIRMED staying outside GHL, 2026-08-27.**
 Emile agreed volume is low enough ("we wouldn't have that much") that a Google Sheet
 (or similar, format doesn't matter to him) is fine for this rather than building it
-into GHL — matches the recommendation above. The existing [[duo-vert/company|Dépenses
-sheet]] logic stays as the model for this, not a CRM feature.
+into GHL — matches the recommendation above. The existing Dépenses sheet logic (see
+"Expenses sheet" above) stays as the model for this, not a CRM feature.
 
 **Parallel exploration, 2026-08-28:** separate from the GHL decision above, Emile is
 also testing whether he can build his own custom CRM using Claude Code — see

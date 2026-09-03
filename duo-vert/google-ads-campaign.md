@@ -1,9 +1,9 @@
 ---
 name: duo-vert-google-ads-campaign
-description: Google Search Ads campaign built 2026-08-09 — every setting/decision made during setup, draft-save gotcha, and what's still pending (Beckett's payment card)
+description: Google Search Ads campaign built 2026-08-09, every setting/decision made during setup and the draft-save gotcha — decided skipped for the 2026 season (2026-08-18), full spec kept for a next-season revisit
 metadata:
   type: project
-  modified: 2026-08-29
+  modified: 2026-08-31
 ---
 
 Built 2026-08-09, in response to [[duo-vert/backlink-campaign]]'s revenue-crisis context (one client all summer, SEO too slow to help this season). Chose **Google Search Ads over Meta** — Émile ran Meta before at ~$35/lead, and Search Ads better fits his situation because he already has GSC data proving real search demand for his exact services, and his site converts well once people land (so the bottleneck is top-of-funnel traffic, not conversion).

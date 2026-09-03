@@ -3,7 +3,7 @@ name: duo-vert-memory-architecture
 description: How this vault works, why curated notes over raw session dumps, and the real sync gap between Claude Code, Cowork, and claude.ai
 metadata:
   type: project
-  modified: 2026-08-17
+  modified: 2026-08-31
 ---
 
 **Setup (2026-07-30):** Emile migrated from an old computer to a new Mac, which surfaced that Claude Code's memory (`~/.claude/projects/.../memory/`) is local to one machine, and separate from Cowork's own skill storage and claude.ai's memory feature — three disconnected stores. Also discovered `duovert-site-fixed` (the actual website source files) never made it to the new Mac — resolved 2026-08-01, see the checklist below.

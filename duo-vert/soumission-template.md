@@ -4,7 +4,7 @@ description: "Confirmed Google Doc template/workflow for Duo Vert client soumiss
 metadata: 
   node_type: memory
   type: project
-  modified: 2026-08-01T19:52:07.533Z
+  modified: 2026-08-18
   originSessionId: 42ce4579-01c7-4e2a-959b-56b7c2d869a8
 ---
 

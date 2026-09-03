@@ -60,8 +60,8 @@ staggered-hiring caution above. Not fully resolved; worth revisiting once sales-
 performance is more concrete during 2027 planning.
 
 **Full 2026 season retro numbers (2026-08-25, final tally):** only **5 jobs total** all
-summer. Website produced essentially zero leads. Door-to-door effort was only **~12
-hours total** for the entire season, a token effort, not a real test. This is the
+summer, off ~12 hours of door-to-door effort — see [[duo-vert/revenue-growth-plan]]'s
+"Final 2026 season tally" for the full numbers (website leads, etc.). This is the
 baseline being compared against for 2027 planning.
 
 **Note on a different public-facing figure (2026-08-27):** Emile's LinkedIn profile

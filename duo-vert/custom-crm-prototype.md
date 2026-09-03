@@ -4,7 +4,7 @@ description: "Emile testing whether he can build his own custom CRM (with custom
 metadata: 
   node_type: memory
   type: project
-  modified: 2026-08-29T00:04:17.232Z
+  modified: 2026-08-31
   originSessionId: 37c90df8-fa63-4f3a-b1db-ddc3345c606b
 ---
 
@@ -857,7 +857,7 @@ table showing which of the 10+ city pages actually get search traffic vs.
 which don't, real device/country tables). `tsc`/`eslint`/`next build` all
 clean on the full `src` tree throughout.
 
-## Ideas for next session (2026-08-29, end of day — not yet built)
+## Ideas for next session (2026-08-29, end of day — recap below; digest + instant auto-reply shipped in Round 9, digest advisory layer in Round 10, see below)
 
 Emile signed off for the night with two feature ideas for a future session,
 explicitly "probably tomorrow":
@@ -891,8 +891,11 @@ been seen in practice. Emile also asked generally for "any other suggestions
 to make this the best CRM" — open standing invitation, nothing else proposed
 yet.
 
-Neither idea is built yet — this is a save-for-next-session note, end of a
-long day (Rounds 6-8 all happened in one sitting).
+This was a save-for-next-session note, end of a long day (Rounds 6-8 all
+happened in one sitting). Idea 1 (daily digest, including the trend/advisory
+refinement below) and idea 2(a) (instant auto-reply) shipped in Round 9/10
+below. Idea 2(b) (follow-up nudge after N days of no reply) is still open —
+not built in either round.
 
 **Refinement to the daily digest idea (same conversation, right before
 sign-off):** the AI shouldn't just recap the day — it should look at trends
@@ -919,7 +922,7 @@ suggestions on how to use AI well in the CRM, not just build-on-request —
 worth proactively bringing ideas in future sessions, not only reacting to
 what he asks for.
 
-## Round 9 — instant auto-reply + AI daily digest (scoped 2026-08-30, plan mode, not yet built)
+## Round 9 — instant auto-reply + AI daily digest (shipped and verified 2026-08-30)
 
 Confirmed via AskUserQuestion: build both ideas flagged at the end of Round 8.
 
@@ -1047,7 +1050,7 @@ templated messages to work the same way (fixed text + name substitution),
 not everything needs to be AI-drafted - he was explicit that the AI-drafted
 approach was NOT what he wanted for this specific message.
 
-## Round 10 — digest trend/advisory layer, scoped 2026-08-31 (plan mode, not yet built)
+## Round 10 — digest trend/advisory layer, shipped and verified 2026-08-31
 
 Confirmed via AskUserQuestion, picking up the layer deferred at the end of
 Round 8/9 (1-2 week trend analysis, proactive suggestions like "engagement

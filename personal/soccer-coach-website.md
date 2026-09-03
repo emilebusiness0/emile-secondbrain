@@ -3,7 +3,7 @@ name: soccer-coach-website
 description: Future freelance website project for Emile's old soccer coach — personal training for athletes, discussed 2026-08-27
 metadata:
   type: project
-  modified: 2026-08-27
+  modified: 2026-08-31
 ---
 
 **Raised 2026-08-27.** Emile's old soccer coach — described as a close friend, not just
@@ -15,7 +15,7 @@ timing), have a call with the coach to discuss what kind of site he wants, then 
 the build.
 
 This is Emile's first concrete lead for the "other client sites" ambition already noted
-in [[personal-website-build-playbook]] (no agency/brand name yet as of 2026-08-05) — the
+in [[personal/website-build-playbook]] (no agency/brand name yet as of 2026-08-05) — the
 playbook's structural defaults (hero sizing, SEO checklist, content process, local-build
 workflow) apply here once the project starts. No details yet on the coach's business
 specifics, target audience, or site scope — that's what the discovery call is for.
@@ -37,5 +37,5 @@ tiers/payment method/hosting architecture all decided (see
 [[personal/agency-idea]]). Next action: wait for his reply and hold the call
 - no further prep needed.
 
-See also: [[personal-website-build-playbook]], [[duo-vert/season-2027-plan]],
+See also: [[personal/website-build-playbook]], [[duo-vert/season-2027-plan]],
 [[personal/agency-idea]]
