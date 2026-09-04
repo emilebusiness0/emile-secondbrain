@@ -3,6 +3,7 @@ name: do-it-yourself-dont-hand-off-steps
 description: "Emile wants me to execute anything I'm actually capable of (terminal commands, browser navigation, clicking through UIs) myself, and only hand him steps that genuinely require his own action"
 metadata:
   type: feedback
+  modified: 2026-09-01
 ---
 
 **Stated firmly 2026-09-01.** Emile pushed back hard when I gave him a

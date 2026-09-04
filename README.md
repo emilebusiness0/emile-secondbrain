@@ -47,7 +47,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 ## Diagrams
 
 - `Excalidraw/lead-webhook-pipeline.excalidraw.md` — visual diagram of the lead pipeline (Netlify Form → Proxy → Apps Script → Sheet), see [[duo-vert/sheets-tracking]]
-- `Excalidraw/Drawing 2026-08-01 22.36.47.excalidraw.md` — untitled, no description anywhere in the vault; purpose unknown, candidate for deletion if Emile confirms it's not needed
+- `Excalidraw/Drawing 2026-08-01 22.36.47.excalidraw.md` — confirmed empty canvas (zero elements), safe to delete, just needs Emile's OK
 
 ## Feedback (how Emile wants work approached)
 

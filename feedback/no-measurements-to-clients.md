@@ -12,4 +12,4 @@ Duo Vert doesn't proactively include the measured area/dimensions in quotes or o
 
 **Why:** Emile corrected an earlier (wrong) version of this memory on 2026-08-19 — a client (Rukia) asked for the total measured area of her project, and he clarified he only meant "we don't volunteer it unasked," not "never share it."
 
-**How to apply:** Don't include area/measurements in quotes or first-contact messages by default. If a client explicitly asks for the number, go ahead and share it. See [[project_duovert_soumission_template]] for how quotes are structured (materials priced separately, no area line by default).
+**How to apply:** Don't include area/measurements in quotes or first-contact messages by default. If a client explicitly asks for the number, go ahead and share it. See [[duo-vert/soumission-template]] for how quotes are structured (materials priced separately, no area line by default).

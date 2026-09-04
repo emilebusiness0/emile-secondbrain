@@ -3,7 +3,7 @@ name: feedback-gbp-post-content-style
 description: "Content style rules for Google Business Profile posts and similar organic content: no sales pitch, no dashes, 3-5 sentences, sound human"
 metadata:
   type: feedback
-  modified: 2026-08-28
+  modified: 2026-09-01
 ---
 
 When drafting Google Business Profile posts (and likely other organic/non-ad content

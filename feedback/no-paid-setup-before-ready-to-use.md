@@ -3,6 +3,7 @@ name: no-paid-setup-before-ready-to-use
 description: "Emile's spending rule: don't activate or pay for any service/tier until it will actually be used live, even mid-build"
 metadata:
   type: feedback
+  modified: 2026-09-01
 ---
 
 **Stated 2026-09-01**, in the context of CRM work and the AI phone

@@ -3,7 +3,7 @@ name: personal-website-build-playbook
 description: Emile's reusable methodology for building websites with Claude Code — design defaults, SEO checklist, content process, workflow — built from the Duo Vert project, meant to carry forward to future client sites
 metadata:
   type: user
-  modified: 2026-08-10
+  modified: 2026-09-01
 ---
 
 Emile's current business is Duo Vert (paver restoration, Gatineau/Ottawa), but he's planning to build websites for other companies too (no agency/brand name yet as of 2026-08-05). duovert.ca was the first real site built end-to-end with Claude Code and is the reference implementation this playbook is distilled from. **The goal of this file: capture what stays the same across any client site — structure, SEO method, workflow, quality bar — so a new site starts from a strong default instead of re-deriving everything from scratch.** Update this file whenever a future site session produces a new reusable lesson, a preference correction, or something tried that didn't work. This is a living document, not a one-time snapshot.

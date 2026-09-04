@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: user
   originSessionId: 9680ac9e-e936-4f40-b8a6-974cb7c5f825
-  modified: 2026-09-01T18:04:23.609Z
+  modified: 2026-09-02
 ---
 
 **Stated 2026-09-01.** Emile is 17, turning 18 in roughly 5-6 months
