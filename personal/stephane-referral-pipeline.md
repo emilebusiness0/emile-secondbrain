@@ -3,6 +3,7 @@ name: stephane-referral-pipeline
 description: "Warm referral channel through Stephane, a business-consulting-style agency contact introduced by Emile's dad - real client work already in motion, not hypothetical"
 metadata:
   type: project
+  modified: 2026-09-02
 ---
 
 **Background.** Before summer 2026, Emile's dad introduced him to Stephane,

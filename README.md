@@ -33,7 +33,7 @@ This is Emile's shared knowledge vault — read by Claude Code at the start of e
 - [[duo-vert/print-collateral]] — door-to-door print kit (flyer/door hanger/business card); flyer and business card signed off 2026-08-15, door hanger route still being scouted
 - [[duo-vert/employee-hiring-plan]] — hiring door-to-door sales reps + cleaners for the 2027 season, compensation structure, candidate list
 - [[duo-vert/season-2027-plan]] — 2027 off-season brainstorm: UGC ad talent, storage unit, brand identity, crew training, RBQ cert, GoHighLevel CRM idea
-- [[duo-vert/custom-crm-prototype]] — self-built CRM with Claude Code, parallel to (not replacing) the decided GoHighLevel plan; through Round 10 (2026-08-31)
+- [[duo-vert/custom-crm-prototype]] — self-built CRM with Claude Code, parallel to (not replacing) the decided GoHighLevel plan; through Round 18 (2026-09-01)
 
 ## Duo Vert — website build (duovert.ca, ~6 months of history)
 

@@ -8,6 +8,10 @@ metadata:
   modified: 2026-08-31
 ---
 
+**Deprioritized 2026-08-27**, not abandoned — Emile: "a point where I have a few and
+it's not my main priority right now." See [[duo-vert/season-2027-plan]] section 11.
+Attention shifted to hiring-readiness prep and the soccer-coach website side project.
+
 Started 2026-08-07. Site relaunched ~2026-08-03/05 and is ranking poorly (position 45-75 on
 money pages like [[duo-vert/seo-history]] pages, despite real search demand) purely
 because it's brand new — technical audit came back clean (no noindex, correct canonical,

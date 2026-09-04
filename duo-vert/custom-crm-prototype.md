@@ -4,7 +4,7 @@ description: "Emile testing whether he can build his own custom CRM (with custom
 metadata: 
   node_type: memory
   type: project
-  modified: 2026-08-31
+  modified: 2026-09-01
   originSessionId: 37c90df8-fa63-4f3a-b1db-ddc3345c606b
 ---
 
@@ -233,41 +233,21 @@ Confirmed requirements (not assumptions, locked in via AskUserQuestion):
 ### Round 3 fixes (same day, 2026-08-29)
 
 Two real usability bugs Emile caught right after using it, both fixed and
-verified:
-- Calendar Début/Fin fields committed on every native datetime-local tick
-  with no confirmation, reading as "did nothing happened" when scrubbing the
-  time. Fixed with a small popup (`datetime-field.tsx`) that only commits on
-  an explicit "Confirmer" click.
-- Root cause of "only 2-3 leads show on the map": hand-typed addresses in
-  Quick Add Lead / contact edit silently failed to geocode with no feedback.
-  Fixed with a live Nominatim address-autocomplete (`address-autocomplete.tsx`)
-  on both forms — picking a real suggestion guarantees a geocodable address
-  and skips a redundant geocode call (coords come straight from the
-  suggestion). Old contacts with addresses typed before this fix still need
-  their address re-entered through the new autocomplete to actually place a
-  pin.
-
-### Round 3 fixes, take 2 (same day, 2026-08-29)
-
-Emile's first fix attempt didn't fully work; real root causes found and fixed:
-- **Address autocomplete returned nothing for partial words / missing "rue"
-  prefix.** Cause: Nominatim's `/search` only matches whole tokens, so it's
-  unsuitable for live type-ahead. Switched to **Photon**
-  (photon.komoot.io, free, OSM-based, no API key, purpose-built for
-  autocomplete/prefix matching) for the live-suggestion lookup specifically —
-  `geocodeAddress` (final exact geocode, backfill script) stays on Nominatim
-  since that's a one-shot lookup of a complete address, not a fit issue.
-  Worth remembering: **Nominatim ≠ good autocomplete source**, Photon is the
-  right free OSM tool for that job specifically.
-- **Time picker dropdown closed the whole popup on selecting an hour.**
-  Cause: the hour/minute `Select` component (Base UI) renders its option list
-  in a React portal outside the popup's DOM subtree, so the popup's
-  click-outside handler saw the click as "outside" and closed everything.
-  Fixed by excluding `[data-slot="select-content"]` from the outside-click
-  check. Also replaced the native datetime-local input inside the popup with
-  a plain date input + hour/minute dropdowns (no nested native time widget at
-  all) per Emile's clarification that he wanted the confirm button "inside
-  the little box," not a second native picker layered on top of it.
+verified. Calendar Début/Fin now use a small confirm popup
+(`datetime-field.tsx`, plain date input + hour/minute dropdowns, no nested
+native time widget) instead of committing on every tick. Leads not
+appearing on the map traced to hand-typed addresses silently failing to
+geocode — fixed with live address-autocomplete (`address-autocomplete.tsx`)
+on Quick Add Lead / contact edit; old contacts typed before this fix still
+need their address re-entered through it to place a pin. Two reusable
+lessons from getting the autocomplete and popup right: **Nominatim's
+`/search` only matches whole tokens, so it's unsuitable for live
+type-ahead** — use **Photon** (photon.komoot.io, free, OSM-based, no API
+key) for autocomplete instead, keep Nominatim for one-shot full-address
+geocoding; and **a Base UI `Select`'s option list renders in a portal
+outside its parent's DOM subtree**, so any click-outside handler on a
+popup containing one must exclude `[data-slot="select-content"]` or it'll
+see option clicks as "outside" and close itself.
 
 ### Research pass — what to improve/build next (2026-08-29, no changes made)
 
@@ -1661,7 +1641,9 @@ em-dash check happened proactively this round (checked all new prompt
 text before running any tool, per the Round 16 lesson) instead of being
 caught after the fact.
 
-**Round 18 (2026-09-01)** - "seen/read" tracking across all three outbound
+## Round 18 — "seen/read" tracking across email/SMS/documents (built + verified 2026-09-01)
+
+"seen/read" tracking across all three outbound
 channels, prompted by an open-ended "find something useful in the CRM"
 ask that Emile then expanded to cover documents, email, and SMS with real
 timestamps, not just a seen flag:

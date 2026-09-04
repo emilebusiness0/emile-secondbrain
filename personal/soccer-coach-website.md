@@ -3,7 +3,7 @@ name: soccer-coach-website
 description: Future freelance website project for Emile's old soccer coach — personal training for athletes, discussed 2026-08-27
 metadata:
   type: project
-  modified: 2026-08-31
+  modified: 2026-09-01
 ---
 
 **Raised 2026-08-27.** Emile's old soccer coach — described as a close friend, not just
